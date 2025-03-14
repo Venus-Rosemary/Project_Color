@@ -22,21 +22,75 @@ public class FruitBasketControl : MonoBehaviour
     [Header("新手教学请勾选is_FirstPass")]
     public bool is_FirstPass=false;
 
+    private int rangeTotality;
+    private float ActiveTime;
+    [Header("高难请勾选is_ThirdPass")]
+    public bool is_ThirdPass = false;
+    public GameObject coloured;
+    public GameObject colourless;
+
+    // 当在Inspector面板中修改变量时，Unity会调用此方法
+    private void OnValidate()
+    {
+        //int FirstP = is_FirstPass ? 1 : 0;
+
+        if (is_FirstPass && is_ThirdPass)
+        {
+            is_FirstPass = false;
+            is_ThirdPass = false;
+        }
+
+    }
+
     private void Update()
     {
         //Debug.Log("？");
 
-        if (totality>=7 && !is_FirstPass)
+        if (totality>=7 && !is_FirstPass&&!is_ThirdPass)
         {
             gameObject.SetActive(false);
             totality = 0;
         }
-        if (totality==1 && is_FirstPass)
+        Set_FirstPassBasket();
+        Set_ThirdPassBasket();
+    }
+    private void OnEnable()
+    {
+        if (is_ThirdPass)
         {
-            if (treeOneC == null) return; 
-            treeOneC.StartDialogue();
-            gameObject.SetActive(false);
-            totality = 0;
+            coloured.SetActive(true);
+            colourless.SetActive(false);
+            rangeTotality = Random.Range(4, 8);
+            ActiveTime = Time.time + 3f;
+        }
+    }
+    public void Set_FirstPassBasket()   //新手教学的果篮设置
+    {
+        if (is_FirstPass)
+        {
+            if (totality==1)
+            {
+                if (treeOneC == null) return;
+                treeOneC.StartDialogue();
+                gameObject.SetActive(false);
+                totality = 0;
+            }
+        }
+    }
+    public void Set_ThirdPassBasket()   //高难的果篮设置
+    {
+        if (is_ThirdPass)
+        {
+            if (totality==rangeTotality)
+            {
+                gameObject.SetActive(false);
+                totality = 0;
+            }
+            if (Time.time> ActiveTime)
+            {
+                coloured.SetActive(false);
+                colourless.SetActive(true);
+            }
         }
     }
 
@@ -47,6 +101,7 @@ public class FruitBasketControl : MonoBehaviour
         {
             return;
         }
+        #region 抽象的判断，没法看，看不了一点
         switch (color)
         {
             case ReceivingColor.Red:
@@ -163,5 +218,6 @@ public class FruitBasketControl : MonoBehaviour
                 }
                 break;
         }
+        #endregion
     }
 }
