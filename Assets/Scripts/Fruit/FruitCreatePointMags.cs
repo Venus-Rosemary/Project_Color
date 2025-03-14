@@ -7,6 +7,8 @@ public class FruitCreatePointMags : MonoBehaviour
 
     public List<FruitData> fruitDatas = new List<FruitData>();
 
+    private Dictionary<FruitType, FruitData> fruitDic = new Dictionary<FruitType, FruitData>();
+
     public GameObject fruitObj;
 
     public Transform rightTrans;
@@ -15,21 +17,34 @@ public class FruitCreatePointMags : MonoBehaviour
 
     public int changeDirectionTime = 10;
 
+    public bool noviceLevel;                //新手引导
+    public bool commonLevel;                //普通关卡
+    public bool difficultyLevel;            //困难关卡
+
+    public bool commonSecondStart;         //普通关卡第二阶段
     private bool isStartTimer = false;
     private float timer = 0;
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
+
+        FruitInit();        //字典初始化
     }
      
     private void Start()
     {
-        //TwoSecondFruit();
-        InvokeRepeating("TwoSecondFruit", 2f,2f);
-        InvokeRepeating("StartLeftCreate",0f,20f);
+        RandomFruitType();
+
+        //if (difficultyLevel)
+        //    StartCreateFruit_D();
+
+        //if(commonLevel)
+        //    StartCreateFruit_C();
+
     }
 
+    //两秒生成水果
     public void TwoSecondFruit()
     {
         if (isStartTimer)
@@ -42,8 +57,12 @@ public class FruitCreatePointMags : MonoBehaviour
             GameObject GA = Instantiate(fruitObj, leftTrans);
             GA.GetComponent<Fruitattribute>().CreateFruit();
         }
+    }
 
-        
+    //切换方向生成
+    public void StartLeftCreate()
+    {
+        isStartTimer = true;
     }
 
     private void Update()
@@ -57,11 +76,165 @@ public class FruitCreatePointMags : MonoBehaviour
                 timer = 0;
             }
         }
+
+        if (difficultyLevel)
+        {
+            //测试-----
+            difficultyLevel = false;
+            StartCreateFruit_D();
+        }
+
+
+        if (commonLevel)
+        {
+            //测试-----
+            commonLevel = false;
+            StartCreateFruit_C();
+        }
+
+        if (GameManagement.Instance._startSecond)
+        {
+            //测试代码
+            commonSecondStart = true;
+            GameManagement.Instance.first_Current_Data.Clear();
+            GameManagement.Instance._startSecond = false;
+            Debug.Log("普通关卡第二阶段开始----");
+        }
     }
 
-    public void StartLeftCreate()
+    #region 关卡模式 ---- 普通
+
+    //开始生成
+    public void StartCreateFruit_C()
     {
-        isStartTimer = true;
-        Debug.Log("开始计时");
+        InvokeRepeating("CreateCommonFruit", 2f, 2f);
+        InvokeRepeating("StartLeftCreate", 0f, 20f);
     }
+
+    //普通关卡生成
+    public void CreateCommonFruit()
+    {
+        if (!commonSecondStart)
+        {
+            //第一阶段
+            CreateFirstCommonLevelFruit();
+        }
+        else 
+        {
+            //第二阶段
+            CreateSecondCommonLevelFruit();
+        }
+    }
+
+
+    //普通关卡生成水果 第一阶段
+    public void CreateFirstCommonLevelFruit()
+    {
+        if (isStartTimer)
+        {
+            GameObject GA = Instantiate(fruitObj, rightTrans);
+            GA.GetComponent<Fruitattribute>().CreateColorFriut();
+        }
+        else
+        {
+            GameObject GA = Instantiate(fruitObj, leftTrans);
+            GA.GetComponent<Fruitattribute>().CreateColorFriut();
+        }
+    }
+
+    //普通关卡生成水果  第二阶段
+    public void CreateSecondCommonLevelFruit() 
+    {
+        if (isStartTimer)
+        {
+            GameObject GA = Instantiate(fruitObj, rightTrans);
+            GA.GetComponent<Fruitattribute>().CertainFruit(RandomSecondFruitType());
+        }
+        else
+        {
+            GameObject GA = Instantiate(fruitObj, leftTrans);
+            GA.GetComponent<Fruitattribute>().CertainFruit(RandomSecondFruitType());
+        }
+    }
+
+    private int fruitType;
+    public void RandomFruitType()
+    {
+        fruitType = Random.Range(0, 7);
+    }
+
+    //第二阶段 随机一种水果
+    public FruitType RandomSecondFruitType()
+    {
+        switch (fruitType)
+        {
+            case 0:
+                return FruitType.Apple;
+            case 1:
+                return FruitType.Orange;
+            case 2:
+                return FruitType.Banana;
+            case 3:
+                return FruitType.GreenMango;
+            case 4:
+                return FruitType.Blueberry;
+            case 5:
+                return FruitType.Grape;
+            case 6:
+                return FruitType.Mangosteen;
+        }
+
+        return FruitType.None;
+    }
+
+    #endregion
+
+    #region 关卡模式 ---- 困难
+
+    //开始生成
+    public void StartCreateFruit_D()
+    {
+        InvokeRepeating("CreateDifficultyFruit", 2f, 2f);
+        InvokeRepeating("StartLeftCreate", 0f, 20f);
+    }
+
+
+    //生成水果
+    public void CreateDifficultyFruit()
+    {
+        if (isStartTimer)
+        {
+            GameObject GA = Instantiate(fruitObj, rightTrans);
+            GA.GetComponent<Fruitattribute>().CreateFruit();
+        }
+        else
+        {
+            GameObject GA = Instantiate(fruitObj, leftTrans);
+            GA.GetComponent<Fruitattribute>().CreateFruit();
+        }
+    }
+    #endregion
+
+
+    #region 字典(按水果类型查找数据)
+
+    //字典初始化
+    public void FruitInit()
+    {
+        for (int i = 0; i < fruitDatas.Count; i++)
+        {
+            fruitDic.Add(fruitDatas[i].fruitDataClass.fruitType, fruitDatas[i]);
+        }
+    }
+
+    //根据类型寻找水果预制体
+    public GameObject CertainFruit(FruitType _fruitType)
+    {
+        if (fruitDic.ContainsKey(_fruitType))
+            return fruitDic[_fruitType].fruitDataClass.fruitPrefab;
+
+        return null;
+    }
+
+    #endregion
 }

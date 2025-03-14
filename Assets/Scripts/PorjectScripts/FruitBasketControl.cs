@@ -19,6 +19,8 @@ public class FruitBasketControl : MonoBehaviour
     public ReceivingColor color;
     public int totality;
     public DialogueTreeController treeOneC;
+    public bool _isFillBasket;
+    public GameObject currentObj;
     [Header("新手教学请勾选is_FirstPass")]
     public bool is_FirstPass=false;
 
@@ -48,19 +50,27 @@ public class FruitBasketControl : MonoBehaviour
 
         if (totality>=7 && !is_FirstPass&&!is_ThirdPass)
         {
+            _isFillBasket = true;
             gameObject.SetActive(false);
             totality = 0;
+            if (GameManagement.Instance._startSecond)
+                GameManagement.Instance.RemoveSecondFruitBasket();
+            else
+                GameManagement.Instance.RemoveFruitBasket();
         }
         Set_FirstPassBasket();
         Set_ThirdPassBasket();
     }
-    private void OnEnable()
+
+    //随机数量、关闭颜色显示
+    public void CloseColor()
     {
         if (is_ThirdPass)
         {
             coloured.SetActive(true);
             colourless.SetActive(false);
-            rangeTotality = Random.Range(4, 8);
+            //rangeTotality = Random.Range(4, 8);
+            rangeTotality = 1;
             ActiveTime = Time.time + 3f;
         }
     }
@@ -81,10 +91,10 @@ public class FruitBasketControl : MonoBehaviour
     {
         if (is_ThirdPass)
         {
-            if (totality==rangeTotality)
+            if (totality == rangeTotality)
             {
-                gameObject.SetActive(false);
-                totality = 0;
+                //gameObject.SetActive(false);
+                //totality = 0;
             }
             if (Time.time> ActiveTime)
             {
@@ -92,6 +102,16 @@ public class FruitBasketControl : MonoBehaviour
                 colourless.SetActive(true);
             }
         }
+    }
+
+    //放满逻辑扣血
+    public void LoseBlood()
+    {
+        if (is_ThirdPass && totality > rangeTotality)
+        {
+           GameManagement.Instance.InjuredHP();
+        }
+    
     }
 
     private void OnTriggerEnter(Collider other)
@@ -107,9 +127,9 @@ public class FruitBasketControl : MonoBehaviour
             case ReceivingColor.Red:
                 if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Red)
                 {
-                    Debug.Log("碰到red");
                     Destroy(other.gameObject);
                     totality += 1;
+                    LoseBlood();
                 }
                 else if(other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Orange
@@ -126,6 +146,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Red
@@ -142,6 +163,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Orange
@@ -158,6 +180,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Orange
@@ -174,6 +197,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Orange
@@ -190,6 +214,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Orange
@@ -206,6 +231,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Red
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Orange

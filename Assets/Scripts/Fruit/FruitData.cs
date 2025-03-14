@@ -12,36 +12,55 @@ public class FruitData : MonoBehaviour
 
         if (_change)
             ChangeFruitColor();
+
+        Debug.Log("我是" + fruitDataClass.fruitType + "颜色：" + fruitDataClass.colorType);
     }
 
     //返回水果颜色
     public void ChangeFruitColor()
     {
-        fruitDataClass.fruitMaterial = FruitColorRGB(fruitDataClass.colorType);
+        int randomColor = UnityEngine.Random.Range(0,7);
+        fruitDataClass.colorType = ChangeFruitType(randomColor);
+        fruitDataClass.fruitPrefab.GetComponent<MeshRenderer>().material = FruitColorRGB(randomColor);
     }
 
     //返还颜色RGB值
-    public Material FruitColorRGB(FruitColorType fruitColorType)
+    public Material FruitColorRGB(int ID)
     {
-        switch (fruitColorType)
-        {
-            case FruitColorType.Red:
-                return fruitDataClass.materialsList[0];
-            case FruitColorType.Orange:
-                return fruitDataClass.materialsList[1];
-            case FruitColorType.Yellow:
-                return fruitDataClass.materialsList[2];
-            case FruitColorType.Green:
-                return fruitDataClass.materialsList[3];
-            case FruitColorType.Blue:
-                return fruitDataClass.materialsList[4];
-            case FruitColorType.Purple:
-                return fruitDataClass.materialsList[5];
-            case FruitColorType.Black:
-                return fruitDataClass.materialsList[6]; 
-        }
+        return fruitDataClass.materialsList[ID];
+    }
 
-        return null;
+    //返还颜色枚举类型
+    public FruitColorType ChangeFruitType(int ID)
+    {
+        switch (ID)
+        {
+            case 0:
+                return FruitColorType.Red;
+            case 1:
+                return FruitColorType.Orange;
+            case 2:
+                return FruitColorType.Yellow;
+            case 3:
+                return FruitColorType.Green;
+            case 4:
+                return FruitColorType.Blue;
+            case 5:
+                return FruitColorType.Purple;
+            case 6:
+                return FruitColorType.Black;
+        }
+        return FruitColorType.None;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag != "Plane") return;
+
+        if (other.gameObject.tag == "Plane")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
 
@@ -50,7 +69,12 @@ public enum FruitType
 {
     Apple,
     Orange,
+    Banana,
+    GreenMango,
+    Blueberry,
+    Grape,
     Mangosteen,
+    None,
 
 }
 
@@ -64,7 +88,7 @@ public enum FruitColorType
     Blue,
     Purple,
     Black,
-
+    None
 }
 
 [Serializable]
@@ -73,7 +97,6 @@ public class FruitDataClass
     public FruitType fruitType;
     public FruitColorType colorType;
     public GameObject fruitPrefab;
-    public Material fruitMaterial;
     public List<Material> materialsList;
 
 }

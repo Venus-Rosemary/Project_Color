@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fruitattribute : MonoBehaviour
@@ -11,6 +12,8 @@ public class Fruitattribute : MonoBehaviour
     public float moveSpeed = 5;
 
     public Rigidbody rb;
+
+    //生成正常水果
     public void CreateFruit()
     {
         fruitDataObj = Instantiate(RandomFruit(),transform).GetComponent<FruitData>();
@@ -18,6 +21,23 @@ public class Fruitattribute : MonoBehaviour
         fruitObj = fruitDataObj.gameObject;
     }
 
+    //生成不同颜色的水果
+    public void CreateColorFriut()
+    {
+        fruitDataObj = Instantiate(RandomFruit(), transform).GetComponent<FruitData>();
+        fruitDataObj.FruitInit(fruitDataObj.fruitDataClass,true);
+        fruitObj = fruitDataObj.gameObject;
+    }
+
+    //生成某一类水果
+    public void CertainFruit(FruitType _fruitType)
+    {
+        fruitDataObj = Instantiate(FruitCreatePointMags.Instance.CertainFruit(_fruitType), transform).GetComponent<FruitData>();
+        fruitDataObj.FruitInit(fruitDataObj.fruitDataClass, true);
+        fruitObj = fruitDataObj.gameObject;
+    }
+
+    //随机水果
     public GameObject RandomFruit()
     {
         int _randomFruit = Random.Range(0,FruitCreatePointMags.Instance.fruitDatas.Count);

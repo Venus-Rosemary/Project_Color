@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5238301579215834101
+--- !u!1 &132657385907315583
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5238301579215834100}
-  - component: {fileID: 5238301579215834105}
-  - component: {fileID: 5238301579215834106}
-  - component: {fileID: 5238301579215834107}
-  - component: {fileID: 5238301579215834098}
+  - component: {fileID: 132657385907315525}
+  - component: {fileID: 132657385907315524}
+  - component: {fileID: 132657385907315579}
+  - component: {fileID: 132657385907315578}
+  - component: {fileID: 132657385907315577}
+  - component: {fileID: 132657385907315576}
   m_Layer: 0
-  m_Name: AppleOBJ_Red
+  m_Name: FruitObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5238301579215834100
+--- !u!4 &132657385907315525
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5238301579215834101}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_GameObject: {fileID: 132657385907315583}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5238301579215834105
+--- !u!33 &132657385907315524
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5238301579215834101}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5238301579215834106
+  m_GameObject: {fileID: 132657385907315583}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &132657385907315579
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5238301579215834101}
+  m_GameObject: {fileID: 132657385907315583}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b35070dc129632f4a86f13dc8f8cc056, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,41 +86,47 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5238301579215834107
-SphereCollider:
+--- !u!65 &132657385907315578
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5238301579215834101}
+  m_GameObject: {fileID: 132657385907315583}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5238301579215834098
+--- !u!54 &132657385907315577
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132657385907315583}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &132657385907315576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5238301579215834101}
+  m_GameObject: {fileID: 132657385907315583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6aa1431e043f6ec4aa7db20f805efdec, type: 3}
+  m_Script: {fileID: 11500000, guid: f52a577af4e3ec84281f0d5676c85bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitDataClass:
-    fruitType: 0
-    colorType: 0
-    fruitPrefab: {fileID: 5238301579215834101}
-    fruitMaterial: {fileID: 2100000, guid: b35070dc129632f4a86f13dc8f8cc056, type: 2}
-    materialsList:
-    - {fileID: 2100000, guid: b35070dc129632f4a86f13dc8f8cc056, type: 2}
-    - {fileID: 2100000, guid: d250204e07b54a347b403331736b2175, type: 2}
-    - {fileID: 2100000, guid: 95bd52a46fb5ba54fadb60ef01c19f31, type: 2}
-    - {fileID: 2100000, guid: 84dbcabeeb1d6dc4d8b8737bc8771edc, type: 2}
-    - {fileID: 2100000, guid: 8d630b2a4af01e141ac68da55ec787e4, type: 2}
-    - {fileID: 2100000, guid: b80c738eff5a6be4da8af4be8481b7c4, type: 2}
-    - {fileID: 2100000, guid: d7bdd5c42e54bee4293c3cdcb15d4523, type: 2}
+  fruitObj: {fileID: 0}
+  moveSpeed: 0.3
+  rb: {fileID: 132657385907315577}

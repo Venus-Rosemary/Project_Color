@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 808327924626200768}
   - component: {fileID: 808327924626200781}
   m_Layer: 0
-  m_Name: AppleOBJ_Blue
+  m_Name: Blueberry_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808327924626200782}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -111,10 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitDataClass:
-    fruitType: 0
+    fruitType: 4
     colorType: 4
     fruitPrefab: {fileID: 808327924626200782}
-    fruitMaterial: {fileID: 2100000, guid: 8d630b2a4af01e141ac68da55ec787e4, type: 2}
     materialsList:
     - {fileID: 2100000, guid: b35070dc129632f4a86f13dc8f8cc056, type: 2}
     - {fileID: 2100000, guid: d250204e07b54a347b403331736b2175, type: 2}
