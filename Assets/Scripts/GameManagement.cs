@@ -7,11 +7,14 @@ public class GameManagement : MonoBehaviour
     public static GameManagement Instance;
 
     [Header("普通关卡数据")]
+
+    public bool commonLevel;                //普通关卡
     public List<FruitBasketControl> first_Current_Data;         //第一轮关卡数据桶
     public List<FruitBasketControl> second_Current_Data;        //第二轮关卡数据桶
     public bool _startSecond;                                   //是否开启第二轮
 
     [Header("困难关卡")]
+    public bool difficultyLevel;            //困难关卡
     public List<FruitBasketControl> difficulty_Current_Data;
 
 
@@ -49,6 +52,7 @@ public class GameManagement : MonoBehaviour
         {
             //游戏结束
             second_Current_Data.Clear();
+            StartPlane.Instance.OpenCommonEndPlane();
         }
 
         for (int i = 0; i < second_Current_Data.Count; i++)
@@ -57,6 +61,27 @@ public class GameManagement : MonoBehaviour
                 second_Current_Data.Remove(second_Current_Data[i]);
         }
     }
+
+    //数据初始化
+    public void InitData()
+    {
+        HP = 4;
+        first_Current_Data.Clear();
+        second_Current_Data.Clear();
+        difficulty_Current_Data.Clear();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (commonLevel)
+                StartPlane.Instance.OpenCommonEndPlane();
+            else
+                StartPlane.Instance.OpenDifficultyEndPlane();
+        }
+    }
+
 
     #region 人物身上血量
 
@@ -67,6 +92,7 @@ public class GameManagement : MonoBehaviour
         if (HP == 0)
         {
             HP = 0;
+            StartPlane.Instance.OpenCommonEndPlane();
             //游戏结束
         }
     }

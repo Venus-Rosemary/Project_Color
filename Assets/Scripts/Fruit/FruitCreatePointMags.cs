@@ -17,9 +17,9 @@ public class FruitCreatePointMags : MonoBehaviour
 
     public int changeDirectionTime = 10;
 
-    public bool noviceLevel;                //新手引导
-    public bool commonLevel;                //普通关卡
-    public bool difficultyLevel;            //困难关卡
+    public bool _isActive;                //新手引导
+    //public bool commonLevel;                //普通关卡
+    //public bool difficultyLevel;            //困难关卡
 
     public bool commonSecondStart;         //普通关卡第二阶段
     private bool isStartTimer = false;
@@ -34,14 +34,25 @@ public class FruitCreatePointMags : MonoBehaviour
      
     private void Start()
     {
-        RandomFruitType();
+        //RandomFruitType();
 
-        //if (difficultyLevel)
+        //if (GameManagement.Instance.difficultyLevel)
         //    StartCreateFruit_D();
 
-        //if(commonLevel)
+        //if (GameManagement.Instance.commonLevel)
         //    StartCreateFruit_C();
 
+    }
+
+    private void OnEnable()
+    {
+        RandomFruitType();
+
+        if (GameManagement.Instance.difficultyLevel)
+            StartCreateFruit_D();
+
+        if (GameManagement.Instance.commonLevel)
+            StartCreateFruit_C();
     }
 
     //两秒生成水果
@@ -77,29 +88,27 @@ public class FruitCreatePointMags : MonoBehaviour
             }
         }
 
-        if (difficultyLevel)
+    }
+
+    //清空子集
+    public void ClearFruit()
+    {
+        for (int i = 0; i < rightTrans.childCount; i++)
         {
-            //测试-----
-            difficultyLevel = false;
-            StartCreateFruit_D();
+            Destroy(rightTrans.GetChild(0).gameObject);
         }
 
-
-        if (commonLevel)
+        for (int i = 0; i < leftTrans.childCount; i++)
         {
-            //测试-----
-            commonLevel = false;
-            StartCreateFruit_C();
+            Destroy(leftTrans.GetChild(0).gameObject);
         }
+    }
 
-        if (GameManagement.Instance._startSecond)
-        {
-            //测试代码
-            commonSecondStart = true;
-            GameManagement.Instance.first_Current_Data.Clear();
-            GameManagement.Instance._startSecond = false;
-            Debug.Log("普通关卡第二阶段开始----");
-        }
+    private void OnDisable()
+    {
+        commonSecondStart = false;
+        CancelInvoke();
+        ClearFruit();
     }
 
     #region 关卡模式 ---- 普通
@@ -214,7 +223,6 @@ public class FruitCreatePointMags : MonoBehaviour
         }
     }
     #endregion
-
 
     #region 字典(按水果类型查找数据)
 

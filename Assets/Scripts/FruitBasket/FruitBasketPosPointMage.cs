@@ -13,15 +13,15 @@ public class FruitBasketPosPointMage : MonoBehaviour
     public int thirdlyNum = 4;
 
     public bool secondStart;
-    private void Start()
+   
+
+    private void OnEnable()
     {
-        if(FruitCreatePointMags.Instance.commonLevel)
+        if (GameManagement.Instance.commonLevel)
             CreateCommonFirst();
 
-        if (FruitCreatePointMags.Instance.difficultyLevel)
+        if (GameManagement.Instance.difficultyLevel)
             CreateDifficulty();
-
-
     }
 
     //生成普通关卡第一阶段水果桶
@@ -86,6 +86,7 @@ public class FruitBasketPosPointMage : MonoBehaviour
         {
             //测试
             secondStart = true;
+            FruitCreatePointMags.Instance.commonSecondStart = true;
             CreateCommonSecond();
 
         }
@@ -104,7 +105,15 @@ public class FruitBasketPosPointMage : MonoBehaviour
         }
     
     }
-   
+
+    private void OnDisable()
+    {
+        secondStart = false;
+        GameManagement.Instance.InitData();
+        ClearFirstCommonPos(commonPos_A_List);
+        ClearFirstCommonPos(commonPos_B_List);
+    }
+
 }
 //打乱List顺序
 public static class ListExtensions
