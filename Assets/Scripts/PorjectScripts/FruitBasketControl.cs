@@ -101,8 +101,8 @@ public class FruitBasketControl : MonoBehaviour
         {
             coloured.SetActive(true);
             colourless.SetActive(false);
-            //rangeTotality = Random.Range(4, 8);
-            rangeTotality = 1;
+            rangeTotality = Random.Range(4, 8);
+            //rangeTotality = 1;
             ActiveTime = Time.time + 3f;
         }
     }
@@ -119,7 +119,7 @@ public class FruitBasketControl : MonoBehaviour
     }
     IEnumerator FirstWaitTime()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         treeOneC.StartDialogue();
         gameObject.SetActive(false);
         totality = 0;
@@ -216,6 +216,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
@@ -226,6 +227,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
@@ -235,6 +237,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
@@ -245,6 +248,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
@@ -254,6 +258,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
@@ -264,6 +269,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
@@ -273,6 +279,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
@@ -283,6 +290,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Red
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
@@ -292,6 +300,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
@@ -302,6 +311,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Red)
                 {
+                    MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
@@ -311,6 +321,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
@@ -321,6 +332,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
