@@ -10,11 +10,13 @@ public class FruitBasketPosPointMage : MonoBehaviour
 
     public int firstNum = 3;
     public int scondNum = 4;
-    public int thirdlyNum = 4;
+
+    public int thirdlyFirstNum = 3;
+    public int thirdlyScondNum = 4;
 
     public bool secondStart;
+    private bool difficultySecondStart;
    
-
     private void OnEnable()
     {
         GameManagement.Instance.InitData();
@@ -22,7 +24,7 @@ public class FruitBasketPosPointMage : MonoBehaviour
             CreateCommonFirst();
 
         if (GameManagement.Instance.difficultyLevel)
-            CreateDifficulty();
+            CreateFirstDifficulty();
     }
 
     //生成普通关卡第一阶段水果桶
@@ -58,19 +60,39 @@ public class FruitBasketPosPointMage : MonoBehaviour
         UIManagement.Instance.gamePlane.InitSecondGameUI();
     }
 
-    //生成困难关卡水果桶
-    public void CreateDifficulty()
+    //生成第一阶段困难关卡水果桶
+    public void CreateFirstDifficulty()
     {
         fruitBasketList.Shuffles();
         ClearFirstCommonPos(commonPos_B_List);
         for (int i = 0; i < fruitBasketList.Count; i++)
         {
-            if (i < thirdlyNum)
+            if (i < thirdlyFirstNum)
+            {
+                GameObject ga = Instantiate(fruitBasketList[i].currentObj, commonPos_A_List[i]);
+                ga.GetComponent<FruitBasketControl>().is_ThirdPass = true;
+                ga.GetComponent<FruitBasketControl>().CloseColor();
+                GameManagement.Instance.first_difficulty_Current_Data.Add(ga.GetComponent<FruitBasketControl>());
+            }
+            else
+                return;
+
+        }
+    }
+
+    //生成第二阶段困难关卡水果桶
+    public void CreateScondDifficulty()
+    {
+        fruitBasketList.Shuffles();
+        ClearFirstCommonPos(commonPos_A_List);
+        for (int i = 0; i < fruitBasketList.Count; i++)
+        {
+            if (i < thirdlyScondNum)
             {
                 GameObject ga = Instantiate(fruitBasketList[i].currentObj, commonPos_B_List[i]);
                 ga.GetComponent<FruitBasketControl>().is_ThirdPass = true;
                 ga.GetComponent<FruitBasketControl>().CloseColor();
-                GameManagement.Instance.difficulty_Current_Data.Add(ga.GetComponent<FruitBasketControl>());
+                GameManagement.Instance.second_difficulty_Current_Data.Add(ga.GetComponent<FruitBasketControl>());
             }
             else
                 return;
@@ -88,6 +110,12 @@ public class FruitBasketPosPointMage : MonoBehaviour
             FruitCreatePointMags.Instance.commonSecondStart = true;
             CreateCommonSecond();
 
+        }
+
+        if (!difficultySecondStart && GameManagement.Instance._startDifficultySecond)
+        {
+            difficultySecondStart = true;
+            CreateScondDifficulty();
         }
     }
 
@@ -108,6 +136,7 @@ public class FruitBasketPosPointMage : MonoBehaviour
     private void OnDisable()
     {
         secondStart = false;
+        difficultySecondStart = false;
         ClearFirstCommonPos(commonPos_A_List);
         ClearFirstCommonPos(commonPos_B_List);
     }

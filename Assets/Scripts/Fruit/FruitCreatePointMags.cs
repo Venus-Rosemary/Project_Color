@@ -17,11 +17,11 @@ public class FruitCreatePointMags : MonoBehaviour
 
     public int changeDirectionTime = 10;
 
-    public bool _isActive;                //新手引导
-    //public bool commonLevel;                //普通关卡
-    //public bool difficultyLevel;            //困难关卡
+    public bool _isActive;                  //新手引导
 
-    public bool commonSecondStart;         //普通关卡第二阶段
+    public bool commonSecondStart;          //普通关卡第二阶段
+    public bool difficulty_SecondStart;     //苦难关卡第二阶段
+
     private bool isStartTimer = false;
     private float timer = 0;
     private void Awake()
@@ -32,18 +32,6 @@ public class FruitCreatePointMags : MonoBehaviour
         FruitInit();        //字典初始化
     }
      
-    private void Start()
-    {
-        //RandomFruitType();
-
-        //if (GameManagement.Instance.difficultyLevel)
-        //    StartCreateFruit_D();
-
-        //if (GameManagement.Instance.commonLevel)
-        //    StartCreateFruit_C();
-
-    }
-
     private void OnEnable()
     {
         RandomFruitType();
@@ -229,6 +217,8 @@ public class FruitCreatePointMags : MonoBehaviour
             GA.GetComponent<Fruitattribute>().CreateFruit();
         }
     }
+
+
     #endregion
 
     #region 字典(按水果类型查找数据)

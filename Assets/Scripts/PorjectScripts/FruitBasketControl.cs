@@ -119,6 +119,11 @@ public class FruitBasketControl : MonoBehaviour
         {
             if (totality == rangeTotality)
             {
+                _isFillBasket = true;
+                if (GameManagement.Instance._startDifficultySecond)
+                    GameManagement.Instance.RemoveSecondDifficultyFruitBasketData();
+                else
+                    GameManagement.Instance.RemoveDifficultyFruitBasketData();
                 //gameObject.SetActive(false);
                 //totality = 0;
             }

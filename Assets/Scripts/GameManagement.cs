@@ -15,8 +15,9 @@ public class GameManagement : MonoBehaviour
 
     [Header("困难关卡")]
     public bool difficultyLevel;            //困难关卡
-    public List<FruitBasketControl> difficulty_Current_Data;
-
+    public List<FruitBasketControl> first_difficulty_Current_Data;
+    public List<FruitBasketControl> second_difficulty_Current_Data;
+    public bool _startDifficultySecond;                         //开启困难关卡第二阶段
 
     [Header("人物血量")]
     public int HP = 4;
@@ -36,6 +37,7 @@ public class GameManagement : MonoBehaviour
             Instance = this;
     }
 
+    #region  普通关卡
     //移除数据
     public void RemoveFruitBasket()
     {
@@ -70,6 +72,50 @@ public class GameManagement : MonoBehaviour
                 second_Current_Data.Remove(second_Current_Data[i]);
         }
     }
+    #endregion
+
+
+    #region  困难关卡
+
+    //第一阶段
+    public void RemoveDifficultyFruitBasketData()
+    {
+        if (first_difficulty_Current_Data.Count == 0)
+        {
+            _startDifficultySecond = true;
+            FruitCreatePointMags.Instance.difficulty_SecondStart = true;
+            first_difficulty_Current_Data.Clear();
+            Debug.Log("困难关卡第二阶段开始----");
+            return;
+            //开始第二轮的篮子生成
+        }
+        for (int i = 0; i < first_difficulty_Current_Data.Count; i++)
+        {
+            if (first_difficulty_Current_Data[i]._isFillBasket)
+                first_difficulty_Current_Data.Remove(first_difficulty_Current_Data[i]);
+        }
+    }
+
+    //第二阶段
+    public void RemoveSecondDifficultyFruitBasketData()
+    {
+        if (second_difficulty_Current_Data.Count == 0)
+        {
+            //游戏结束
+            second_difficulty_Current_Data.Clear();
+            UIManagement.Instance.OpenEndPlane();
+        }
+
+        for (int i = 0; i < second_difficulty_Current_Data.Count; i++)
+        {
+            if (second_difficulty_Current_Data[i]._isFillBasket)
+                second_difficulty_Current_Data.Remove(second_difficulty_Current_Data[i]);
+        }
+    }
+
+
+    #endregion
+
 
     //数据初始化
     public void InitData()
@@ -81,7 +127,8 @@ public class GameManagement : MonoBehaviour
         }
         first_Current_Data.Clear();
         second_Current_Data.Clear();
-        difficulty_Current_Data.Clear();
+        first_difficulty_Current_Data.Clear();
+        first_difficulty_Current_Data.Clear();
     }
 
     private void Update()
@@ -99,6 +146,7 @@ public class GameManagement : MonoBehaviour
     public void InjuredHP()
     {
         HP -= 1;
+        HpImage[HP].gameObject.SetActive(false);
         if (HP == 0)
         {
             HP = 0;
@@ -106,7 +154,6 @@ public class GameManagement : MonoBehaviour
             //游戏结束
             return;
         }
-        HpImage[HP].gameObject.SetActive(false);
     }
 
     #endregion
