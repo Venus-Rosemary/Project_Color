@@ -554,7 +554,10 @@ MonoBehaviour:
   second_Current_Data: []
   _startSecond: 0
   difficultyLevel: 0
-  difficulty_Current_Data: []
+  first_difficulty_Current_Data: []
+  second_difficulty_Current_Data: []
+  _startDifficultySecond: 0
+  fruitBaskeData: {fileID: 1637957247}
   HP: 4
   HpImage:
   - {fileID: 894424077}
@@ -2403,7 +2406,8 @@ MonoBehaviour:
   - {fileID: 1173494582}
   firstNum: 3
   scondNum: 4
-  thirdlyNum: 4
+  thirdlyFirstNum: 3
+  thirdlyScondNum: 4
   secondStart: 0
 --- !u!1 &1702221257
 GameObject:
@@ -2706,6 +2710,7 @@ MonoBehaviour:
   changeDirectionTime: 10
   _isActive: 0
   commonSecondStart: 0
+  difficulty_SecondStart: 0
 --- !u!1 &2008803372
 GameObject:
   m_ObjectHideFlags: 0

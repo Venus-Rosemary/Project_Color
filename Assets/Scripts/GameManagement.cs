@@ -18,6 +18,7 @@ public class GameManagement : MonoBehaviour
     public List<FruitBasketControl> first_difficulty_Current_Data;
     public List<FruitBasketControl> second_difficulty_Current_Data;
     public bool _startDifficultySecond;                         //开启困难关卡第二阶段
+    public FruitBasketPosPointMage fruitBaskeData;
 
     [Header("人物血量")]
     public int HP = 4;
@@ -83,7 +84,7 @@ public class GameManagement : MonoBehaviour
         if (first_difficulty_Current_Data.Count == 0)
         {
             _startDifficultySecond = true;
-            FruitCreatePointMags.Instance.difficulty_SecondStart = true;
+            fruitBaskeData.CreateScondDifficulty();
             first_difficulty_Current_Data.Clear();
             Debug.Log("困难关卡第二阶段开始----");
             return;
@@ -125,6 +126,8 @@ public class GameManagement : MonoBehaviour
         {
             HpImage[i].gameObject.SetActive(true);
         }
+        _startSecond = false;
+        _startDifficultySecond = false;
         first_Current_Data.Clear();
         second_Current_Data.Clear();
         first_difficulty_Current_Data.Clear();

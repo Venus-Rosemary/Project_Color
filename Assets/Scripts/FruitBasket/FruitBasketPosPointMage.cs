@@ -83,21 +83,27 @@ public class FruitBasketPosPointMage : MonoBehaviour
     //生成第二阶段困难关卡水果桶
     public void CreateScondDifficulty()
     {
-        fruitBasketList.Shuffles();
-        ClearFirstCommonPos(commonPos_A_List);
-        for (int i = 0; i < fruitBasketList.Count; i++)
+        if (!difficultySecondStart && GameManagement.Instance._startDifficultySecond)
         {
-            if (i < thirdlyScondNum)
+            difficultySecondStart = true;
+            fruitBasketList.Shuffles();
+            ClearFirstCommonPos(commonPos_A_List);
+            for (int i = 0; i < fruitBasketList.Count; i++)
             {
-                GameObject ga = Instantiate(fruitBasketList[i].currentObj, commonPos_B_List[i]);
-                ga.GetComponent<FruitBasketControl>().is_ThirdPass = true;
-                ga.GetComponent<FruitBasketControl>().CloseColor();
-                GameManagement.Instance.second_difficulty_Current_Data.Add(ga.GetComponent<FruitBasketControl>());
-            }
-            else
-                return;
+                if (i < thirdlyScondNum)
+                {
+                    GameObject ga = Instantiate(fruitBasketList[i].currentObj, commonPos_B_List[i]);
+                    ga.GetComponent<FruitBasketControl>().is_ThirdPass = true;
+                    ga.GetComponent<FruitBasketControl>().CloseColor();
+                    GameManagement.Instance.second_difficulty_Current_Data.Add(ga.GetComponent<FruitBasketControl>());
+                }
+                else
+                    return;
 
+            }
         }
+
+        
     }
 
 
