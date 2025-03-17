@@ -9,9 +9,11 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private float GrabDecideTime=0.3f;//触发器显示时间
     public GameObject GrabPoint;//抓到的东西存放位置
+    [SerializeField]
     private bool is_InHands=false;//手中是否有东西
     public GameObject InHands;//手里抓到的东西
-
+    [SerializeField]
+    private bool isProcessing=true;
     public bool canControl=true;
     public bool is_inFirst = false;
     void Start()
@@ -24,7 +26,7 @@ public class PlayerControl : MonoBehaviour
         if (canControl)
         {
             PlayerMove();
-            if (Input.GetMouseButtonDown(0) && !is_InHands)
+            if (Input.GetMouseButtonDown(0) && !is_InHands && isProcessing)
             {
                 Set_GrabDecide();
             }
@@ -37,7 +39,7 @@ public class PlayerControl : MonoBehaviour
         if (GrabDecide.activeSelf==true&&Time.time> deactivateTriggerTime)
         {
             GrabDecide.SetActive(false);
-            //isProcessing = false;
+            isProcessing = true;
         }
     }
     public void Set_PlayerNotCanControl()
@@ -51,13 +53,18 @@ public class PlayerControl : MonoBehaviour
     public void Set_GrabDecide()
     {
         GrabDecide.SetActive(true);
+        isProcessing = false;
         deactivateTriggerTime = Time.time + GrabDecideTime;
     }
 
     public void Set_PutDown()
     {
+        isProcessing = true;
         is_InHands = false;
-        InHands.transform.SetParent(null);
+        if (InHands.gameObject!=null)
+        {
+            InHands.transform.SetParent(null);
+        }
         InHands.AddComponent<Rigidbody>();
     }
 
@@ -91,6 +98,10 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!GrabDecide.activeSelf)
+        {
+            return;
+        }
         if (other.gameObject.GetComponent<FruitData>()==null)
         {
             return;
@@ -99,15 +110,13 @@ public class PlayerControl : MonoBehaviour
         {
             return;
         }
-        //if (other.gameObject.name != "Red" && other.gameObject.name != "Green" && other.gameObject.name != "Blue"
-        //    && other.gameObject.name != "Yellow" && other.gameObject.name != "Orange" && other.gameObject.name != "Pink" && other.gameObject.name != "Purple")
-        //    return;
         if (is_InHands) return;
         is_InHands = true;
         if (!is_inFirst)
         {
             other.gameObject.SetActive(false);
         }
+        Debug.Log("碰到:"+other.gameObject.name);
         InHands = Instantiate(other.gameObject, GrabPoint.transform);
         //InHands.gameObject.transform.SetParent(GrabPoint.transform,false);
         InHands.SetActive(true);
