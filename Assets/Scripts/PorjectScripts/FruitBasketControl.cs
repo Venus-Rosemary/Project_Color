@@ -37,6 +37,10 @@ public class FruitBasketControl : MonoBehaviour
     public GameObject coloured;
     public GameObject colourless;
 
+    [Header("特效")]
+    public GameObject CorrectVFx;
+    public GameObject MistakeVFx;
+
     // 当在Inspector面板中修改变量时，Unity会调用此方法
     private void OnValidate()
     {
@@ -109,11 +113,16 @@ public class FruitBasketControl : MonoBehaviour
             if (totality==1)
             {
                 if (treeOneC == null) return;
-                treeOneC.StartDialogue();
-                gameObject.SetActive(false);
-                totality = 0;
+                StartCoroutine(FirstWaitTime());
             }
         }
+    }
+    IEnumerator FirstWaitTime()
+    {
+        yield return new WaitForSeconds(2f);
+        treeOneC.StartDialogue();
+        gameObject.SetActive(false);
+        totality = 0;
     }
     public void Set_ThirdPassBasket()   //高难的果篮设置
     {
@@ -176,6 +185,8 @@ public class FruitBasketControl : MonoBehaviour
         {
             return;
         }
+        CorrectVFx.SetActive(false);
+        MistakeVFx.SetActive(false);
         #region 抽象的判断，没法看，看不了一点
         switch (color)
         {
@@ -184,6 +195,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
@@ -194,6 +206,7 @@ public class FruitBasketControl : MonoBehaviour
                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
