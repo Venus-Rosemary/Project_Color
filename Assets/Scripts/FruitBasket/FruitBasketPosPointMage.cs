@@ -17,6 +17,7 @@ public class FruitBasketPosPointMage : MonoBehaviour
 
     private void OnEnable()
     {
+        GameManagement.Instance.InitData();
         if (GameManagement.Instance.commonLevel)
             CreateCommonFirst();
 
@@ -107,7 +108,6 @@ public class FruitBasketPosPointMage : MonoBehaviour
     private void OnDisable()
     {
         secondStart = false;
-        GameManagement.Instance.InitData();
         ClearFirstCommonPos(commonPos_A_List);
         ClearFirstCommonPos(commonPos_B_List);
     }

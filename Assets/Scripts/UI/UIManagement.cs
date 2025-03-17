@@ -11,6 +11,8 @@ public class UIManagement : MonoBehaviour
     public EndPlane endPlane;
 
     public GamePlane gamePlane;
+    public GameObject colorPlane;
+    public GameObject hpPlane;
 
     private void Awake()
     {
@@ -39,7 +41,15 @@ public class UIManagement : MonoBehaviour
     {
         CloseAllPlane();
         gamePlane.gameObject.SetActive(true);
-
+        colorPlane.SetActive(true);
+        hpPlane.SetActive(false);
+    }
+    public void OpenGamePlaneD()
+    {
+        CloseAllPlane();
+        gamePlane.gameObject.SetActive(true);
+        colorPlane.SetActive(false);
+        hpPlane.SetActive(true);
     }
 
     //关闭所有界面

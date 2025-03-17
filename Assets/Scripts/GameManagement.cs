@@ -20,6 +20,7 @@ public class GameManagement : MonoBehaviour
 
     [Header("人物血量")]
     public int HP = 4;
+    public List<GameObject> HpImage;
 
     [Header("颜色")]
     public Color red;
@@ -74,6 +75,10 @@ public class GameManagement : MonoBehaviour
     public void InitData()
     {
         HP = 4;
+        for (int i = 0; i < HpImage.Count; i++)
+        {
+            HpImage[i].gameObject.SetActive(true);
+        }
         first_Current_Data.Clear();
         second_Current_Data.Clear();
         difficulty_Current_Data.Clear();
@@ -99,7 +104,9 @@ public class GameManagement : MonoBehaviour
             HP = 0;
             UIManagement.Instance.OpenEndPlane();
             //游戏结束
+            return;
         }
+        HpImage[HP].gameObject.SetActive(false);
     }
 
     #endregion

@@ -49,7 +49,10 @@ public class FruitCreatePointMags : MonoBehaviour
         RandomFruitType();
 
         if (GameManagement.Instance.difficultyLevel)
+        {
             StartCreateFruit_D();
+            UIManagement.Instance.OpenGamePlaneD();
+        }
 
         if (GameManagement.Instance.commonLevel)
         {

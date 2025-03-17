@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameTimeControl : MonoBehaviour
+public class GameTimeControl : Singleton<GameTimeControl>
 {
+    public GameObject TimeUI=null;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,11 +15,27 @@ public class GameTimeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (TimeUI.activeSelf)
+        {
+            KeepTime();
+        }
+    }
 
+    public void Set_GameTimeStart()
+    {
+        if (GameManagement.Instance.commonLevel)
+        {
+            currentTime = 60;
+        }
+        else if (GameManagement.Instance.difficultyLevel)
+        {
+
+            currentTime = 120;
+        }
     }
 
     public TMP_Text timerText; // 引用到你的Text UI组件
-    public float currentTime = 60f; // 3分钟的计时
+    public float currentTime = 60f; // 1分钟的计时
     //计时
     public void KeepTime()
     {

@@ -64,7 +64,10 @@ public class FruitBasketControl : MonoBehaviour
         //Debug.Log("£¿");
         if (is_FirstPass || is_ThirdPass)
         {
-            CountUI_P.SetActive(false);
+            if (CountUI_P!=null)
+            {
+                CountUI_P.SetActive(false);
+            }
         }
         else
         {
@@ -138,7 +141,10 @@ public class FruitBasketControl : MonoBehaviour
     }
     private void HPLookAtCamera()
     {
-        CountUI_P.transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward);
+        if (CountUI_P!=null)
+        {
+            CountUI_P.transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward);
+        }
     }
     public void UI_QuantityDisplay()
     {
@@ -162,6 +168,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
                 else if(other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -171,6 +178,7 @@ public class FruitBasketControl : MonoBehaviour
                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -179,6 +187,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -188,6 +197,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -196,6 +206,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -205,6 +216,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -213,6 +225,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -222,6 +235,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -230,6 +244,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -239,6 +254,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Red
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -247,6 +263,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -256,6 +273,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Red)
                 {
+                    GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -264,6 +282,7 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     totality += 1;
+                    GameTimeControl.Instance.AddT(10f);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Red
@@ -273,6 +292,7 @@ public class FruitBasketControl : MonoBehaviour
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue
                                     || other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
+                    GameTimeControl.Instance.AddT(-10f);
                     Destroy(other.gameObject);
                 }
                 break;

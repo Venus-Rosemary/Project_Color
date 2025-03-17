@@ -42,6 +42,7 @@ public class StartPlane : MonoBehaviour
     {
         GameManagement.Instance.commonLevel = true;
         GameManagement.Instance.difficultyLevel = false;
+        gameObject.GetComponentInParent<GameTimeControl>().Set_GameTimeStart();
         level_Data_Obj.SetActive(true);
         gameObject.SetActive(false);
 
@@ -52,6 +53,7 @@ public class StartPlane : MonoBehaviour
     {
         GameManagement.Instance.commonLevel = false;
         GameManagement.Instance.difficultyLevel = true;
+        gameObject.GetComponentInParent<GameTimeControl>().Set_GameTimeStart();
         level_Data_Obj.SetActive(true);
         gameObject.SetActive(false);
     }
