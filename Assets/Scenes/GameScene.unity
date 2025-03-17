@@ -2819,7 +2819,7 @@ MonoBehaviour:
   rightTrans: {fileID: 1510934123}
   leftTrans: {fileID: 1702221258}
   changeDirectionTime: 10
-  noviceLevel: 0
+  _isActive: 0
   commonSecondStart: 0
 --- !u!1 &2008803372
 GameObject:
@@ -3617,7 +3617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipOnInput: 1
-  waitForInput: 1
+  waitForInput: 0
   subtitlesGroup: {fileID: 662640420346285345}
   actorSpeech: {fileID: 662640420361499243}
   actorName: {fileID: 662640420361499237}
@@ -4176,6 +4176,7 @@ MonoBehaviour:
   - Fruit: {fileID: 3377305173816002033}
     FruitBasket: {fileID: 4022928809308581240}
   FirstB: {fileID: 662640422108798462}
+  PlayerPos: {fileID: 2101483090715612854}
   FiresIndex: 0
 --- !u!65 &692841368733105097
 BoxCollider:
@@ -6958,6 +6959,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: NodeCanvas.DialogueTrees.DialogueTreeController,
           NodeCanvas
         m_MethodName: StartDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 662640422108798463}
+        m_TargetAssemblyTypeName: FirstLevelManagement, Assembly-CSharp
+        m_MethodName: Set_PlayStartPos
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
