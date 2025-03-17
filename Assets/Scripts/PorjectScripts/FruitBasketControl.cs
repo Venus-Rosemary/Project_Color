@@ -1,6 +1,7 @@
 using NodeCanvas.DialogueTrees;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FruitBasketControl : MonoBehaviour
@@ -17,10 +18,15 @@ public class FruitBasketControl : MonoBehaviour
     }
 
     public ReceivingColor color;
-    public int totality;
+    public int totality=0;
+    private int maxValue = 7;
     public DialogueTreeController treeOneC;
     public bool _isFillBasket;
-    public GameObject currentObj;
+    public GameObject currentObj=null;
+    public GameObject CountUI_Prefab=null;
+    private GameObject CountUI_P=null;
+    private TMP_Text CountUI=null;
+
     [Header("新手教学请勾选is_FirstPass")]
     public bool is_FirstPass=false;
 
@@ -43,11 +49,28 @@ public class FruitBasketControl : MonoBehaviour
         }
 
     }
-
+    private void Start()
+    {
+        CountUI_P = Instantiate(CountUI_Prefab, this.gameObject.transform);
+        if (CountUI_P != null)
+        {
+            CountUI_P.GetComponent<Canvas>().worldCamera = Camera.main;
+            CountUI_P.SetActive(false);
+            CountUI = CountUI_P.GetComponentInChildren<TMP_Text>();
+        }
+    }
     private void Update()
     {
         //Debug.Log("？");
-
+        if (is_FirstPass || is_ThirdPass)
+        {
+            CountUI_P.SetActive(false);
+        }
+        else
+        {
+            CountUI_P.SetActive(true);
+        }
+        HPLookAtCamera();
         if (totality>=7 && !is_FirstPass&&!is_ThirdPass)
         {
             _isFillBasket = true;
@@ -111,7 +134,17 @@ public class FruitBasketControl : MonoBehaviour
         {
            GameManagement.Instance.InjuredHP();
         }
-    
+        UI_QuantityDisplay();
+    }
+    private void HPLookAtCamera()
+    {
+        CountUI_P.transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward);
+    }
+    public void UI_QuantityDisplay()
+    {
+        if (CountUI == null) return;
+        CountUI.text = string.Format("{0}/{1}", totality, maxValue);
+        //CountUI.text = $"{totality}/{maxValue}"; ;
     }
 
     private void OnTriggerEnter(Collider other)
