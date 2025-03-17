@@ -36,19 +36,19 @@ public class FruitData : MonoBehaviour
         switch (ID)
         {
             case 0:
-                return FruitColorType.Red;
-            case 1:
-                return FruitColorType.Orange;
-            case 2:
-                return FruitColorType.Yellow;
-            case 3:
-                return FruitColorType.Green;
-            case 4:
-                return FruitColorType.Blue;
-            case 5:
-                return FruitColorType.Purple;
-            case 6:
                 return FruitColorType.Black;
+            case 1:
+                return FruitColorType.Blue;
+            case 2:
+                return FruitColorType.Green;
+            case 3:
+                return FruitColorType.Orange;
+            case 4:
+                return FruitColorType.Purple;
+            case 5:
+                return FruitColorType.Red;
+            case 6:
+                return FruitColorType.Yellow;
         }
         return FruitColorType.None;
     }
