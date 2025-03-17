@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,10 +13,10 @@ public class FruitData : MonoBehaviour
         if (_change)
             ChangeFruitColor();
 
-        Debug.Log("ÎÒÊÇ" + fruitDataClass.fruitType + "ÑÕÉ«£º" + fruitDataClass.colorType);
+        Debug.Log("æˆ‘æ˜¯" + fruitDataClass.fruitType + "é¢œè‰²ï¼š" + fruitDataClass.colorType);
     }
 
-    //·µ»ØË®¹ûÑÕÉ«
+    //è¿”å›žæ°´æžœé¢œè‰²
     public void ChangeFruitColor()
     {
         int randomColor = UnityEngine.Random.Range(0,7);
@@ -24,13 +24,13 @@ public class FruitData : MonoBehaviour
         fruitDataClass.fruitPrefab.GetComponent<MeshRenderer>().material = FruitColorRGB(randomColor);
     }
 
-    //·µ»¹ÑÕÉ«RGBÖµ
+    //è¿”è¿˜é¢œè‰²RGBå€¼
     public Material FruitColorRGB(int ID)
     {
         return fruitDataClass.materialsList[ID];
     }
 
-    //·µ»¹ÑÕÉ«Ã¶¾ÙÀàÐÍ
+    //è¿”è¿˜é¢œè‰²æžšä¸¾ç±»åž‹
     public FruitColorType ChangeFruitType(int ID)
     {
         switch (ID)
@@ -64,7 +64,7 @@ public class FruitData : MonoBehaviour
     }
 }
 
-//Ë®¹ûÀàÐÍ
+//æ°´æžœç±»åž‹
 public enum FruitType
 {
     Apple,
@@ -78,7 +78,7 @@ public enum FruitType
 
 }
 
-//Ë®¹ûÑÕÉ«
+//æ°´æžœé¢œè‰²
 public enum FruitColorType
 { 
     Red, 

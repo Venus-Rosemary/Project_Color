@@ -36,9 +36,9 @@ public class FruitBasketPosPointMage : MonoBehaviour
                 GameObject ga = Instantiate(fruitBasketList[i].currentObj, commonPos_A_List[i]);
                 GameManagement.Instance.first_Current_Data.Add(ga.GetComponent<FruitBasketControl>());
             }
-            else
-                return;
         }
+
+        UIManagement.Instance.gamePlane.InitFristGameUI();
     }
 
     //生成普通关卡第二阶段水果桶
@@ -53,10 +53,8 @@ public class FruitBasketPosPointMage : MonoBehaviour
                 GameObject ga = Instantiate(fruitBasketList[i].currentObj, commonPos_B_List[i]);
                 GameManagement.Instance.second_Current_Data.Add(ga.GetComponent<FruitBasketControl>());
             }
-            else
-                return;
-
         }
+        UIManagement.Instance.gamePlane.InitSecondGameUI();
     }
 
     //生成困难关卡水果桶

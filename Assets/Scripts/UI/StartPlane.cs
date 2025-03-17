@@ -1,71 +1,70 @@
+Ôªøusing NodeCanvas.DialogueTrees;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StartPlane : MonoBehaviour
 {
     public static StartPlane Instance;
+
+    public Button novice_BTN;
     public Button common_BTN;
     public Button difficulty_BTN;
+    public Button exit_BTN;
+    
+    public GameObject level_Data_Obj;
+    public GameObject novice_Data_Obj;
 
-    public GameObject level_Obj;
-
-    public GameObject common_End_Obj;
-    public GameObject start_Obj;
-    public GameObject difficulty_End_Obj;
     private void Awake()
     {
         if(Instance == null)
             Instance = this;
 
+        novice_BTN.onClick.AddListener(NoviceLevelClick);
         common_BTN.onClick.AddListener(CommonLevelClick);
         difficulty_BTN.onClick.AddListener(DifficultyLevelClick);
+        exit_BTN.onClick.AddListener(ExitClick);
     }
 
-    //∆’Õ®πÿø®ø™ º
+    public void NoviceLevelClick()
+    {
+        novice_Data_Obj.SetActive(true);
+        novice_Data_Obj.GetComponent<DialogueTreeController>().StartDialogue();
+        gameObject.SetActive(false);
+    }
+
+    //ÊôÆÈÄöÂÖ≥Âç°ÂºÄÂßã
     public void CommonLevelClick()
     {
         GameManagement.Instance.commonLevel = true;
         GameManagement.Instance.difficultyLevel = false;
-        level_Obj.SetActive(true);
-        start_Obj.SetActive(false);
+        level_Data_Obj.SetActive(true);
+        gameObject.SetActive(false);
 
     }
 
-    //¿ßƒ—πÿø®ø™ º
+    //Âõ∞ÈöæÂÖ≥Âç°ÂºÄÂßã
     public void DifficultyLevelClick()
     {
         GameManagement.Instance.commonLevel = false;
         GameManagement.Instance.difficultyLevel = true;
-        level_Obj.SetActive(true);
-        start_Obj.SetActive(false);
+        level_Data_Obj.SetActive(true);
+        gameObject.SetActive(false);
     }
 
-    public void OpenCommonEndPlane()
+    public void ExitClick()
     {
-        level_Obj.SetActive(false);
-        common_End_Obj.SetActive(true);
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 
-    public void OpenDifficultyEndPlane()
-    {
-        level_Obj.SetActive(false);
-        difficulty_End_Obj.SetActive(true);
-    }
-
-    public void CloseEndPlane()
-    {
-        start_Obj.SetActive(true);
-        difficulty_End_Obj.SetActive(false);
-        common_End_Obj.SetActive(false);
-
-    }
-
-    public void BackMain()
-    { 
     
-    }
+
 }
 

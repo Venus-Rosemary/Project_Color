@@ -1,4 +1,4 @@
-using NodeCanvas.Framework;
+﻿using NodeCanvas.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +20,7 @@ public class FirstLevelManagement : MonoBehaviour
     public int FiresIndex=0;
     public void Set_ActiveBool()
     {
-        #region ���úڰ�ֵ
+        #region 设置黑板值
         switch (FiresIndex)
         {
             case 0:

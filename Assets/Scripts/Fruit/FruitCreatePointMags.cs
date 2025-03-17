@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class FruitCreatePointMags : MonoBehaviour
@@ -17,11 +17,11 @@ public class FruitCreatePointMags : MonoBehaviour
 
     public int changeDirectionTime = 10;
 
-    public bool _isActive;                //ĞÂÊÖÒıµ¼
-    //public bool commonLevel;                //ÆÕÍ¨¹Ø¿¨
-    //public bool difficultyLevel;            //À§ÄÑ¹Ø¿¨
+    public bool _isActive;                //æ–°æ‰‹å¼•å¯¼
+    //public bool commonLevel;                //æ™®é€šå…³å¡
+    //public bool difficultyLevel;            //å›°éš¾å…³å¡
 
-    public bool commonSecondStart;         //ÆÕÍ¨¹Ø¿¨µÚ¶ş½×¶Î
+    public bool commonSecondStart;         //æ™®é€šå…³å¡ç¬¬äºŒé˜¶æ®µ
     private bool isStartTimer = false;
     private float timer = 0;
     private void Awake()
@@ -29,7 +29,7 @@ public class FruitCreatePointMags : MonoBehaviour
         if (Instance == null)
             Instance = this;
 
-        FruitInit();        //×Öµä³õÊ¼»¯
+        FruitInit();        //å­—å…¸åˆå§‹åŒ–
     }
      
     private void Start()
@@ -52,10 +52,14 @@ public class FruitCreatePointMags : MonoBehaviour
             StartCreateFruit_D();
 
         if (GameManagement.Instance.commonLevel)
+        {
             StartCreateFruit_C();
+            UIManagement.Instance.OpenGamePlane();
+        }
+            
     }
 
-    //Á½ÃëÉú³ÉË®¹û
+    //ä¸¤ç§’ç”Ÿæˆæ°´æœ
     public void TwoSecondFruit()
     {
         if (isStartTimer)
@@ -70,7 +74,7 @@ public class FruitCreatePointMags : MonoBehaviour
         }
     }
 
-    //ÇĞ»»·½ÏòÉú³É
+    //åˆ‡æ¢æ–¹å‘ç”Ÿæˆ
     public void StartLeftCreate()
     {
         isStartTimer = true;
@@ -90,7 +94,7 @@ public class FruitCreatePointMags : MonoBehaviour
 
     }
 
-    //Çå¿Õ×Ó¼¯
+    //æ¸…ç©ºå­é›†
     public void ClearFruit()
     {
         for (int i = 0; i < rightTrans.childCount; i++)
@@ -111,32 +115,32 @@ public class FruitCreatePointMags : MonoBehaviour
         ClearFruit();
     }
 
-    #region ¹Ø¿¨Ä£Ê½ ---- ÆÕÍ¨
+    #region å…³å¡æ¨¡å¼ ---- æ™®é€š
 
-    //¿ªÊ¼Éú³É
+    //å¼€å§‹ç”Ÿæˆ
     public void StartCreateFruit_C()
     {
         InvokeRepeating("CreateCommonFruit", 2f, 2f);
         InvokeRepeating("StartLeftCreate", 0f, 20f);
     }
 
-    //ÆÕÍ¨¹Ø¿¨Éú³É
+    //æ™®é€šå…³å¡ç”Ÿæˆ
     public void CreateCommonFruit()
     {
         if (!commonSecondStart)
         {
-            //µÚÒ»½×¶Î
+            //ç¬¬ä¸€é˜¶æ®µ
             CreateFirstCommonLevelFruit();
         }
         else 
         {
-            //µÚ¶ş½×¶Î
+            //ç¬¬äºŒé˜¶æ®µ
             CreateSecondCommonLevelFruit();
         }
     }
 
 
-    //ÆÕÍ¨¹Ø¿¨Éú³ÉË®¹û µÚÒ»½×¶Î
+    //æ™®é€šå…³å¡ç”Ÿæˆæ°´æœ ç¬¬ä¸€é˜¶æ®µ
     public void CreateFirstCommonLevelFruit()
     {
         if (isStartTimer)
@@ -151,7 +155,7 @@ public class FruitCreatePointMags : MonoBehaviour
         }
     }
 
-    //ÆÕÍ¨¹Ø¿¨Éú³ÉË®¹û  µÚ¶ş½×¶Î
+    //æ™®é€šå…³å¡ç”Ÿæˆæ°´æœ  ç¬¬äºŒé˜¶æ®µ
     public void CreateSecondCommonLevelFruit() 
     {
         if (isStartTimer)
@@ -172,7 +176,7 @@ public class FruitCreatePointMags : MonoBehaviour
         fruitType = Random.Range(0, 7);
     }
 
-    //µÚ¶ş½×¶Î Ëæ»úÒ»ÖÖË®¹û
+    //ç¬¬äºŒé˜¶æ®µ éšæœºä¸€ç§æ°´æœ
     public FruitType RandomSecondFruitType()
     {
         switch (fruitType)
@@ -198,9 +202,9 @@ public class FruitCreatePointMags : MonoBehaviour
 
     #endregion
 
-    #region ¹Ø¿¨Ä£Ê½ ---- À§ÄÑ
+    #region å…³å¡æ¨¡å¼ ---- å›°éš¾
 
-    //¿ªÊ¼Éú³É
+    //å¼€å§‹ç”Ÿæˆ
     public void StartCreateFruit_D()
     {
         InvokeRepeating("CreateDifficultyFruit", 2f, 2f);
@@ -208,7 +212,7 @@ public class FruitCreatePointMags : MonoBehaviour
     }
 
 
-    //Éú³ÉË®¹û
+    //ç”Ÿæˆæ°´æœ
     public void CreateDifficultyFruit()
     {
         if (isStartTimer)
@@ -224,9 +228,9 @@ public class FruitCreatePointMags : MonoBehaviour
     }
     #endregion
 
-    #region ×Öµä(°´Ë®¹ûÀàĞÍ²éÕÒÊı¾İ)
+    #region å­—å…¸(æŒ‰æ°´æœç±»å‹æŸ¥æ‰¾æ•°æ®)
 
-    //×Öµä³õÊ¼»¯
+    //å­—å…¸åˆå§‹åŒ–
     public void FruitInit()
     {
         for (int i = 0; i < fruitDatas.Count; i++)
@@ -235,7 +239,7 @@ public class FruitCreatePointMags : MonoBehaviour
         }
     }
 
-    //¸ù¾İÀàĞÍÑ°ÕÒË®¹ûÔ¤ÖÆÌå
+    //æ ¹æ®ç±»å‹å¯»æ‰¾æ°´æœé¢„åˆ¶ä½“
     public GameObject CertainFruit(FruitType _fruitType)
     {
         if (fruitDic.ContainsKey(_fruitType))

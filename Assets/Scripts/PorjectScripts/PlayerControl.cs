@@ -1,16 +1,16 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    public GameObject GrabDecide;//×¥È¡´¥·¢Æ÷
+    public GameObject GrabDecide;//æŠ“å–è§¦å‘å™¨
     private float deactivateTriggerTime;
     [SerializeField]
-    private float GrabDecideTime=0.3f;//´¥·¢Æ÷ÏÔÊ¾Ê±¼ä
-    public GameObject GrabPoint;//×¥µ½µÄ¶«Î÷´æ·ÅÎ»ÖÃ
-    private bool is_InHands=false;//ÊÖÖĞÊÇ·ñÓĞ¶«Î÷
-    public GameObject InHands;//ÊÖÀï×¥µ½µÄ¶«Î÷
+    private float GrabDecideTime=0.3f;//è§¦å‘å™¨æ˜¾ç¤ºæ—¶é—´
+    public GameObject GrabPoint;//æŠ“åˆ°çš„ä¸œè¥¿å­˜æ”¾ä½ç½®
+    private bool is_InHands=false;//æ‰‹ä¸­æ˜¯å¦æœ‰ä¸œè¥¿
+    public GameObject InHands;//æ‰‹é‡ŒæŠ“åˆ°çš„ä¸œè¥¿
 
     public bool canControl=true;
     public bool is_inFirst = false;
@@ -61,8 +61,8 @@ public class PlayerControl : MonoBehaviour
         InHands.AddComponent<Rigidbody>();
     }
 
-    public float speed = 5.0f; // ÒÆ¶¯ËÙ¶È
-    public float rotationSpeed = 10.0f; // Ğı×ªËÙ¶È
+    public float speed = 5.0f; // ç§»åŠ¨é€Ÿåº¦
+    public float rotationSpeed = 10.0f; // æ—‹è½¬é€Ÿåº¦
     public Rigidbody rb;
     private Vector3 movement;
 
@@ -70,7 +70,7 @@ public class PlayerControl : MonoBehaviour
     public float moveVertical;
     public void PlayerMove()
     {
-        // ÔÚÃ¿Ò»Ö¡»ñÈ¡ÊäÈë£¬²¢¼ÆËãÒÆ¶¯µÄ·½Ïò
+        // åœ¨æ¯ä¸€å¸§è·å–è¾“å…¥ï¼Œå¹¶è®¡ç®—ç§»åŠ¨çš„æ–¹å‘
          moveHorizontal = Input.GetAxisRaw("Horizontal");
          moveVertical = Input.GetAxisRaw("Vertical");
         bool hasInput = Mathf.Abs(Input.GetAxis("Horizontal")) > 0f || Mathf.Abs(Input.GetAxis("Vertical")) > 0f;

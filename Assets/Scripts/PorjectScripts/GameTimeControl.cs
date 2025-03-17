@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -17,25 +17,25 @@ public class GameTimeControl : MonoBehaviour
 
     }
 
-    public TMP_Text timerText; // ÒıÓÃµ½ÄãµÄText UI×é¼ş
-    public float currentTime = 60f; // 3·ÖÖÓµÄ¼ÆÊ±
-    //¼ÆÊ±
+    public TMP_Text timerText; // å¼•ç”¨åˆ°ä½ çš„Text UIç»„ä»¶
+    public float currentTime = 60f; // 3åˆ†é’Ÿçš„è®¡æ—¶
+    //è®¡æ—¶
     public void KeepTime()
     {
-        // Ã¿Ö¡¼õÉÙÊ±¼ä
+        // æ¯å¸§å‡å°‘æ—¶é—´
         currentTime -= Time.deltaTime;
 
-        // ¸üĞÂUIÎÄ±¾ÏÔÊ¾µ±Ç°Ê£ÓàÊ±¼ä
+        // æ›´æ–°UIæ–‡æœ¬æ˜¾ç¤ºå½“å‰å‰©ä½™æ—¶é—´
         timerText.text = FormatTime(currentTime);
-        // µ±¼ÆÊ±½áÊøÊ±µÄ²Ù×÷
+        // å½“è®¡æ—¶ç»“æŸæ—¶çš„æ“ä½œ
         if (currentTime <= 0)
         {
             currentTime = 0;
-            // ÔÚÕâÀï¿ÉÒÔÌí¼Ó¼ÆÊ±½áÊøºóµÄÂß¼­
+            // åœ¨è¿™é‡Œå¯ä»¥æ·»åŠ è®¡æ—¶ç»“æŸåçš„é€»è¾‘
             timerText.text = "00:00";
         }
     }
-    // ½«Ê±¼ä¸ñÊ½»¯Îªmm:ss
+    // å°†æ—¶é—´æ ¼å¼åŒ–ä¸ºmm:ss
     private string FormatTime(float timeInSeconds)
     {
         int minutes = Mathf.FloorToInt(timeInSeconds / 60);
@@ -43,7 +43,7 @@ public class GameTimeControl : MonoBehaviour
         return string.Format("{00:00}:{01:00}", minutes, seconds);
     }
 
-    //¼Ó¼õÊ±¼ä½»»¥
+    //åŠ å‡æ—¶é—´äº¤äº’
     public void AddT(float additionalTime)
     {
         currentTime += additionalTime;

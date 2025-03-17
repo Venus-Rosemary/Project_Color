@@ -21,6 +21,14 @@ public class GameManagement : MonoBehaviour
     [Header("人物血量")]
     public int HP = 4;
 
+    [Header("颜色")]
+    public Color red;
+    public Color orange;
+    public Color yellow;
+    public Color green;
+    public Color blue;
+    public Color purple;
+    public Color black;
     private void Awake()
     {
         if(Instance == null)
@@ -52,7 +60,7 @@ public class GameManagement : MonoBehaviour
         {
             //游戏结束
             second_Current_Data.Clear();
-            StartPlane.Instance.OpenCommonEndPlane();
+            UIManagement.Instance.OpenEndPlane();
         }
 
         for (int i = 0; i < second_Current_Data.Count; i++)
@@ -75,10 +83,7 @@ public class GameManagement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (commonLevel)
-                StartPlane.Instance.OpenCommonEndPlane();
-            else
-                StartPlane.Instance.OpenDifficultyEndPlane();
+            UIManagement.Instance.OpenEndPlane();
         }
     }
 
@@ -92,7 +97,7 @@ public class GameManagement : MonoBehaviour
         if (HP == 0)
         {
             HP = 0;
-            StartPlane.Instance.OpenCommonEndPlane();
+            UIManagement.Instance.OpenEndPlane();
             //游戏结束
         }
     }
