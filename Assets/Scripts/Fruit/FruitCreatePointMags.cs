@@ -20,7 +20,6 @@ public class FruitCreatePointMags : MonoBehaviour
     public bool _isActive;                  //新手引导
 
     public bool commonSecondStart;          //普通关卡第二阶段
-    public bool difficulty_SecondStart;     //苦难关卡第二阶段
 
     private bool isStartTimer = false;
     private float timer = 0;

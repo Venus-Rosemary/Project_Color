@@ -312,7 +312,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6012642682921006612, guid: e59e02bfb9d12ef4c8b2dd360450323d, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6012642682921006612, guid: e59e02bfb9d12ef4c8b2dd360450323d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -379,7 +379,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 260265326997597957, guid: 080ca3386043bb04b9e9a84a8e92353e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 260265326997597957, guid: 080ca3386043bb04b9e9a84a8e92353e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -557,6 +557,7 @@ MonoBehaviour:
   first_difficulty_Current_Data: []
   second_difficulty_Current_Data: []
   _startDifficultySecond: 0
+  fruitBaskeData: {fileID: 1637957247}
   HP: 4
   HpImage:
   - {fileID: 894424077}
@@ -1323,7 +1324,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6569053174755020720, guid: dc573bed1bcd87940906f2e6f0efb9ab, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6569053174755020720, guid: dc573bed1bcd87940906f2e6f0efb9ab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1394,7 +1395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573459490992485644, guid: 5585f68fdf51bb643acfe1f2674f442a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7573459490992485644, guid: 5585f68fdf51bb643acfe1f2674f442a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1578,37 +1579,6 @@ Transform:
   - {fileID: 67675731}
   m_Father: {fileID: 1939135908}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1068809466
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1068809467}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1068809467
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068809466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7651818, y: 2.1503258, z: -8.682856}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1173494581
 GameObject:
@@ -2313,7 +2283,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3963032095566381679, guid: 6191fcea68bb7bd49ae7866a0b1356e1, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3963032095566381679, guid: 6191fcea68bb7bd49ae7866a0b1356e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2493,7 +2463,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6049548386093434802, guid: 836804c92204c1247ac962303cae160e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6049548386093434802, guid: 836804c92204c1247ac962303cae160e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3854,8 +3824,8 @@ MonoBehaviour:
     _version: 3.28
     _category: 
     _comments: 
-    _translation: {x: 520, y: -7}
-    _zoomFactor: 0.6550453
+    _translation: {x: 25, y: 257}
+    _zoomFactor: 0.2500905
   _firstActivation: 0
   _enableAction: 1
   _disableAction: 2
@@ -4166,8 +4136,6 @@ MonoBehaviour:
   is_ThirdPass: 0
   coloured: {fileID: 786471149893430141}
   colourless: {fileID: 3467194430388458263}
-  CorrectVFx: {fileID: 0}
-  MistakeVFx: {fileID: 0}
 --- !u!1 &786471150691588102
 GameObject:
   m_ObjectHideFlags: 0
@@ -5187,8 +5155,6 @@ MonoBehaviour:
   is_ThirdPass: 0
   coloured: {fileID: 1316936293181987654}
   colourless: {fileID: 6162641834333479917}
-  CorrectVFx: {fileID: 0}
-  MistakeVFx: {fileID: 0}
 --- !u!23 &2954350336523080851
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5387,8 +5353,6 @@ MonoBehaviour:
   is_ThirdPass: 0
   coloured: {fileID: 586619039331037188}
   colourless: {fileID: 5534641308497787850}
-  CorrectVFx: {fileID: 0}
-  MistakeVFx: {fileID: 0}
 --- !u!4 &3989872249642858001
 Transform:
   m_ObjectHideFlags: 0
@@ -5762,8 +5726,6 @@ MonoBehaviour:
   is_ThirdPass: 0
   coloured: {fileID: 5666566807431477098}
   colourless: {fileID: 3404258655082848563}
-  CorrectVFx: {fileID: 0}
-  MistakeVFx: {fileID: 0}
 --- !u!1 &5592788889663515784
 GameObject:
   m_ObjectHideFlags: 0
@@ -7949,8 +7911,6 @@ MonoBehaviour:
   is_ThirdPass: 0
   coloured: {fileID: 3682140320624521263}
   colourless: {fileID: 7965828016951858355}
-  CorrectVFx: {fileID: 0}
-  MistakeVFx: {fileID: 0}
 --- !u!1 &6361101589424645069
 GameObject:
   m_ObjectHideFlags: 0
@@ -8268,8 +8228,6 @@ MonoBehaviour:
   is_ThirdPass: 0
   coloured: {fileID: 6361101589424645069}
   colourless: {fileID: 9202788878051670154}
-  CorrectVFx: {fileID: 0}
-  MistakeVFx: {fileID: 0}
 --- !u!4 &8079182449881111664
 Transform:
   m_ObjectHideFlags: 0
@@ -8370,8 +8328,6 @@ MonoBehaviour:
   is_ThirdPass: 0
   coloured: {fileID: 7014171686818408939}
   colourless: {fileID: 8819511101512429461}
-  CorrectVFx: {fileID: 0}
-  MistakeVFx: {fileID: 0}
 --- !u!23 &8754636721379143127
 MeshRenderer:
   m_ObjectHideFlags: 0
