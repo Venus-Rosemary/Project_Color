@@ -33,6 +33,7 @@ public class StartPlane : MonoBehaviour
     {
         novice_Data_Obj.SetActive(true);
         novice_Data_Obj.GetComponent<DialogueTreeController>().StartDialogue();
+        novice_Data_Obj.GetComponent<FirstLevelManagement>().Set_PlayStartPos();
         gameObject.SetActive(false);
     }
 

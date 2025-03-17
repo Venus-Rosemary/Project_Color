@@ -1451,37 +1451,6 @@ Transform:
   m_Father: {fileID: 1829832430}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1546753680
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1546753681}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1546753681
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546753680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: -6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1637957245
 GameObject:
   m_ObjectHideFlags: 0
@@ -3138,6 +3107,7 @@ MonoBehaviour:
   - Fruit: {fileID: 3377305173816002033}
     FruitBasket: {fileID: 4022928809308581240}
   FirstB: {fileID: 662640422108798462}
+  PlayerPos: {fileID: 2101483090715612854}
   FiresIndex: 0
 --- !u!65 &692841368733105097
 BoxCollider:
@@ -3324,6 +3294,7 @@ MonoBehaviour:
   treeOneC: {fileID: 662640422108798457}
   _isFillBasket: 0
   currentObj: {fileID: 786471150691588102}
+  CountUI_Prefab: {fileID: 0}
   is_FirstPass: 1
   is_ThirdPass: 0
   coloured: {fileID: 786471149893430141}
@@ -4826,6 +4797,7 @@ MonoBehaviour:
   treeOneC: {fileID: 662640422108798457}
   _isFillBasket: 0
   currentObj: {fileID: 5042338734725705233}
+  CountUI_Prefab: {fileID: 0}
   is_FirstPass: 1
   is_ThirdPass: 0
   coloured: {fileID: 1316936293181987654}
@@ -5145,6 +5117,7 @@ MonoBehaviour:
   treeOneC: {fileID: 662640422108798457}
   _isFillBasket: 0
   currentObj: {fileID: 3458425465386379083}
+  CountUI_Prefab: {fileID: 0}
   is_FirstPass: 1
   is_ThirdPass: 0
   coloured: {fileID: 586619039331037188}
@@ -5639,6 +5612,7 @@ MonoBehaviour:
   treeOneC: {fileID: 662640422108798457}
   _isFillBasket: 0
   currentObj: {fileID: 2445174689730900494}
+  CountUI_Prefab: {fileID: 0}
   is_FirstPass: 1
   is_ThirdPass: 0
   coloured: {fileID: 5666566807431477098}
@@ -7819,6 +7793,7 @@ MonoBehaviour:
   treeOneC: {fileID: 662640422108798457}
   _isFillBasket: 0
   currentObj: {fileID: 6550959343668286518}
+  CountUI_Prefab: {fileID: 0}
   is_FirstPass: 1
   is_ThirdPass: 0
   coloured: {fileID: 3682140320624521263}
@@ -8135,6 +8110,7 @@ MonoBehaviour:
   treeOneC: {fileID: 662640422108798457}
   _isFillBasket: 0
   currentObj: {fileID: 4022928809308581240}
+  CountUI_Prefab: {fileID: 0}
   is_FirstPass: 1
   is_ThirdPass: 0
   coloured: {fileID: 6361101589424645069}
@@ -8234,6 +8210,7 @@ MonoBehaviour:
   treeOneC: {fileID: 662640422108798457}
   _isFillBasket: 0
   currentObj: {fileID: 8089172801997140427}
+  CountUI_Prefab: {fileID: 0}
   is_FirstPass: 1
   is_ThirdPass: 0
   coloured: {fileID: 7014171686818408939}

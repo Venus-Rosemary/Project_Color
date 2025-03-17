@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static FruitBasketControl;
 
 public class ColourCard : MonoBehaviour
 {
@@ -9,29 +10,29 @@ public class ColourCard : MonoBehaviour
     public Image imageColor;
 
     //初始化
-    public void InitColorCard(FruitColorType _fruitColorType)
+    public void InitColorCard(ReceivingColor _fruitColorType)
     {
         imageColor.color = GetCardColorUI(_fruitColorType);
     }
 
     //根据水果颜色返回对应的UI颜色
-    public Color GetCardColorUI(FruitColorType fruitColorType)
+    public Color GetCardColorUI(ReceivingColor fruitColorType)
     {
         switch (fruitColorType)
         {
-            case FruitColorType.Red:
+            case ReceivingColor.Red:
                 return GameManagement.Instance.red;
-            case FruitColorType.Orange:
+            case ReceivingColor.Orange:
                 return GameManagement.Instance.orange;
-            case FruitColorType.Yellow:
+            case ReceivingColor.Yellow:
                 return GameManagement.Instance.yellow;
-            case FruitColorType.Green:
+            case ReceivingColor.Green:
                 return GameManagement.Instance.green;
-            case FruitColorType.Blue:
+            case ReceivingColor.Blue:
                 return GameManagement.Instance.blue;
-            case FruitColorType.Purple:
+            case ReceivingColor.Purple:
                 return GameManagement.Instance.purple;
-            case FruitColorType.Black:
+            case ReceivingColor.Black:
                 return GameManagement.Instance.black;
         }
         return Color.white;
