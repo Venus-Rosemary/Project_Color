@@ -58,11 +58,12 @@ public class FruitBasketControl : MonoBehaviour
             CountUI_P.SetActive(false);
             CountUI = CountUI_P.GetComponentInChildren<TMP_Text>();
         }
+        UI_QuantityDisplay();
     }
     private void Update()
     {
         //Debug.Log("£¿");
-        if (is_FirstPass || is_ThirdPass)
+        if (is_FirstPass)
         {
             if (CountUI_P!=null)
             {
@@ -73,6 +74,7 @@ public class FruitBasketControl : MonoBehaviour
         {
             CountUI_P.SetActive(true);
         }
+
         HPLookAtCamera();
         if (totality>=7 && !is_FirstPass&&!is_ThirdPass)
         {
@@ -129,6 +131,7 @@ public class FruitBasketControl : MonoBehaviour
             }
             if (Time.time> ActiveTime)
             {
+                CountUI_P.SetActive(false);
                 coloured.SetActive(false);
                 colourless.SetActive(true);
             }
@@ -140,6 +143,7 @@ public class FruitBasketControl : MonoBehaviour
     {
         if (is_ThirdPass && totality > rangeTotality)
         {
+            totality = rangeTotality;
            GameManagement.Instance.InjuredHP();
         }
         UI_QuantityDisplay();
@@ -154,7 +158,14 @@ public class FruitBasketControl : MonoBehaviour
     public void UI_QuantityDisplay()
     {
         if (CountUI == null) return;
-        CountUI.text = string.Format("{0}/{1}", totality, maxValue);
+        if (!is_FirstPass && !is_ThirdPass)
+        {
+            CountUI.text = string.Format("{0}/{1}", totality, maxValue);
+        }
+        else if (is_ThirdPass)
+        {
+            CountUI.text = string.Format("{0}",  rangeTotality);
+        }
         //CountUI.text = $"{totality}/{maxValue}"; ;
     }
 
