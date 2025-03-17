@@ -8,14 +8,20 @@ public class FirstLevelManagement : MonoBehaviour
 
     public List<SetWaveNumber> SetWN;
     public Blackboard FirstB;
+    public GameObject PlayerPos;
+    private Vector3 StartPos;
     void Start()
     {
-        
+        StartPos = gameObject.transform.position;
     }
 
     void Update()
     {
         
+    }
+    public void Set_PlayStartPos()
+    {
+        PlayerPos.transform.position = StartPos;
     }
     public int FiresIndex=0;
     public void Set_ActiveBool()

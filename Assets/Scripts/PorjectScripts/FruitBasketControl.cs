@@ -1,6 +1,7 @@
-ï»¿using NodeCanvas.DialogueTrees;
+using NodeCanvas.DialogueTrees;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FruitBasketControl : MonoBehaviour
@@ -16,22 +17,27 @@ public class FruitBasketControl : MonoBehaviour
         Black,
     }
 
-    public FruitColorType color;
-    public int totality;
+    public ReceivingColor color;
+    public int totality=0;
+    private int maxValue = 7;
     public DialogueTreeController treeOneC;
     public bool _isFillBasket;
-    public GameObject currentObj;
-    [Header("æ–°æ‰‹æ•™å­¦è¯·å‹¾é€‰is_FirstPass")]
+    public GameObject currentObj=null;
+    public GameObject CountUI_Prefab=null;
+    private GameObject CountUI_P=null;
+    private TMP_Text CountUI=null;
+
+    [Header("ĞÂÊÖ½ÌÑ§Çë¹´Ñ¡is_FirstPass")]
     public bool is_FirstPass=false;
 
     private int rangeTotality;
     private float ActiveTime;
-    [Header("é«˜éš¾è¯·å‹¾é€‰is_ThirdPass")]
+    [Header("¸ßÄÑÇë¹´Ñ¡is_ThirdPass")]
     public bool is_ThirdPass = false;
     public GameObject coloured;
     public GameObject colourless;
 
-    // å½“åœ¨Inspectoré¢æ¿ä¸­ä¿®æ”¹å˜é‡æ—¶ï¼ŒUnityä¼šè°ƒç”¨æ­¤æ–¹æ³•
+    // µ±ÔÚInspectorÃæ°åÖĞĞŞ¸Ä±äÁ¿Ê±£¬Unity»áµ÷ÓÃ´Ë·½·¨
     private void OnValidate()
     {
         //int FirstP = is_FirstPass ? 1 : 0;
@@ -43,11 +49,28 @@ public class FruitBasketControl : MonoBehaviour
         }
 
     }
-
+    private void Start()
+    {
+        CountUI_P = Instantiate(CountUI_Prefab, this.gameObject.transform);
+        if (CountUI_P != null)
+        {
+            CountUI_P.GetComponent<Canvas>().worldCamera = Camera.main;
+            CountUI_P.SetActive(false);
+            CountUI = CountUI_P.GetComponentInChildren<TMP_Text>();
+        }
+    }
     private void Update()
     {
-        //Debug.Log("ï¼Ÿ");
-
+        //Debug.Log("£¿");
+        if (is_FirstPass || is_ThirdPass)
+        {
+            CountUI_P.SetActive(false);
+        }
+        else
+        {
+            CountUI_P.SetActive(true);
+        }
+        HPLookAtCamera();
         if (totality>=7 && !is_FirstPass&&!is_ThirdPass)
         {
             _isFillBasket = true;
@@ -62,7 +85,7 @@ public class FruitBasketControl : MonoBehaviour
         Set_ThirdPassBasket();
     }
 
-    //éšæœºæ•°é‡ã€å…³é—­é¢œè‰²æ˜¾ç¤º
+    //Ëæ»úÊıÁ¿¡¢¹Ø±ÕÑÕÉ«ÏÔÊ¾
     public void CloseColor()
     {
         if (is_ThirdPass)
@@ -74,7 +97,7 @@ public class FruitBasketControl : MonoBehaviour
             ActiveTime = Time.time + 3f;
         }
     }
-    public void Set_FirstPassBasket()   //æ–°æ‰‹æ•™å­¦çš„æœç¯®è®¾ç½®
+    public void Set_FirstPassBasket()   //ĞÂÊÖ½ÌÑ§µÄ¹ûÀºÉèÖÃ
     {
         if (is_FirstPass)
         {
@@ -87,7 +110,7 @@ public class FruitBasketControl : MonoBehaviour
             }
         }
     }
-    public void Set_ThirdPassBasket()   //é«˜éš¾çš„æœç¯®è®¾ç½®
+    public void Set_ThirdPassBasket()   //¸ßÄÑµÄ¹ûÀºÉèÖÃ
     {
         if (is_ThirdPass)
         {
@@ -104,27 +127,37 @@ public class FruitBasketControl : MonoBehaviour
         }
     }
 
-    //æ”¾æ»¡é€»è¾‘æ‰£è¡€
+    //·ÅÂúÂß¼­¿ÛÑª
     public void LoseBlood()
     {
         if (is_ThirdPass && totality > rangeTotality)
         {
            GameManagement.Instance.InjuredHP();
         }
-    
+        UI_QuantityDisplay();
+    }
+    private void HPLookAtCamera()
+    {
+        CountUI_P.transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward);
+    }
+    public void UI_QuantityDisplay()
+    {
+        if (CountUI == null) return;
+        CountUI.text = string.Format("{0}/{1}", totality, maxValue);
+        //CountUI.text = $"{totality}/{maxValue}"; ;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ç¢°åˆ°ä¸œè¥¿äº†");
+        Debug.Log("Åöµ½¶«Î÷ÁË");
         if (other.gameObject.GetComponent<FruitData>() == null)
         {
             return;
         }
-        #region æŠ½è±¡çš„åˆ¤æ–­ï¼Œæ²¡æ³•çœ‹ï¼Œçœ‹ä¸äº†ä¸€ç‚¹
+        #region ³éÏóµÄÅĞ¶Ï£¬Ã»·¨¿´£¬¿´²»ÁËÒ»µã
         switch (color)
         {
-            case FruitColorType.Red:
+            case ReceivingColor.Red:
                 if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Red)
                 {
                     Destroy(other.gameObject);
@@ -141,7 +174,7 @@ public class FruitBasketControl : MonoBehaviour
                     Destroy(other.gameObject);
                 }
                 break;
-            case FruitColorType.Orange:
+            case ReceivingColor.Orange:
                 if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Orange)
                 {
                     Destroy(other.gameObject);
@@ -158,7 +191,7 @@ public class FruitBasketControl : MonoBehaviour
                     Destroy(other.gameObject);
                 }
                 break;
-            case FruitColorType.Yellow:
+            case ReceivingColor.Yellow:
                 if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Yellow)
                 {
                     Destroy(other.gameObject);
@@ -175,7 +208,7 @@ public class FruitBasketControl : MonoBehaviour
                     Destroy(other.gameObject);
                 }
                 break;
-            case FruitColorType.Green:
+            case ReceivingColor.Green:
                 if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Green)
                 {
                     Destroy(other.gameObject);
@@ -192,7 +225,7 @@ public class FruitBasketControl : MonoBehaviour
                     Destroy(other.gameObject);
                 }
                 break;
-            case FruitColorType.Blue:
+            case ReceivingColor.Blue:
                 if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Blue)
                 {
                     Destroy(other.gameObject);
@@ -209,7 +242,7 @@ public class FruitBasketControl : MonoBehaviour
                     Destroy(other.gameObject);
                 }
                 break;
-            case FruitColorType.Purple:
+            case ReceivingColor.Purple:
                 if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Purple)
                 {
                     Destroy(other.gameObject);
@@ -226,7 +259,7 @@ public class FruitBasketControl : MonoBehaviour
                     Destroy(other.gameObject);
                 }
                 break;
-            case FruitColorType.Black:
+            case ReceivingColor.Black:
                 if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black)
                 {
                     Destroy(other.gameObject);
