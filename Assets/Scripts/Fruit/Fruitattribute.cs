@@ -25,7 +25,7 @@ public class Fruitattribute : MonoBehaviour
     public void CreateColorFriut()
     {
         fruitDataObj = Instantiate(RandomFruit(), transform).GetComponent<FruitData>();
-        fruitDataObj.FruitInit(fruitDataObj.fruitDataClass,true);
+        fruitDataObj.FruitInit(fruitDataObj.fruitDataClass);
         fruitObj = fruitDataObj.gameObject;
     }
 
