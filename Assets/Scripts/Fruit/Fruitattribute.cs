@@ -7,6 +7,8 @@ public class Fruitattribute : MonoBehaviour
     //水果预制体
     public GameObject fruitObj;
 
+    public Transform fruitTrans;
+
     private FruitData fruitDataObj;
 
     public float moveSpeed = 5;
@@ -16,7 +18,7 @@ public class Fruitattribute : MonoBehaviour
     //生成正常水果
     public void CreateFruit()
     {
-        fruitDataObj = Instantiate(RandomFruit(),transform).GetComponent<FruitData>();
+        fruitDataObj = Instantiate(RandomFruit(), fruitTrans).GetComponent<FruitData>();
         fruitDataObj.FruitInit(fruitDataObj.fruitDataClass);
         fruitObj = fruitDataObj.gameObject;
     }
@@ -24,7 +26,7 @@ public class Fruitattribute : MonoBehaviour
     //生成不同颜色的水果
     public void CreateColorFriut()
     {
-        fruitDataObj = Instantiate(RandomFruit(), transform).GetComponent<FruitData>();
+        fruitDataObj = Instantiate(RandomFruit(), fruitTrans).GetComponent<FruitData>();
         fruitDataObj.FruitInit(fruitDataObj.fruitDataClass);
         fruitObj = fruitDataObj.gameObject;
     }
@@ -32,7 +34,7 @@ public class Fruitattribute : MonoBehaviour
     //生成某一类水果
     public void CertainFruit()
     {
-        fruitDataObj = Instantiate(RandomSecondLevelFruit(), transform).GetComponent<FruitData>();
+        fruitDataObj = Instantiate(RandomSecondLevelFruit(), fruitTrans).GetComponent<FruitData>();
         fruitDataObj.FruitInit(fruitDataObj.fruitDataClass);
         fruitObj = fruitDataObj.gameObject;
     }
@@ -84,12 +86,5 @@ public class Fruitattribute : MonoBehaviour
     {
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
-
-    //水果交互
-
-    //水果的移动方法
-
-    //水果的生成时间间隔方法
-
 
 }

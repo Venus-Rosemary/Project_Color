@@ -11,7 +11,9 @@ public class FruitCreatePointMags : MonoBehaviour
 
     private Dictionary<FruitType, FruitData> fruitDic = new Dictionary<FruitType, FruitData>();
 
-    public GameObject fruitObj;
+    public List<GameObject> monsterType = new List<GameObject>();
+
+    //public GameObject fruitObj;
 
     public Transform rightTrans;
 
@@ -49,19 +51,11 @@ public class FruitCreatePointMags : MonoBehaviour
             
     }
 
-    //两秒生成水果
-    public void TwoSecondFruit()
+    //随机生成一种小怪
+    public GameObject RandomMonster()
     {
-        if (isStartTimer)
-        {
-            GameObject GA = Instantiate(fruitObj, rightTrans);
-            GA.GetComponent<Fruitattribute>().CreateFruit();
-        }
-        else
-        {
-            GameObject GA = Instantiate(fruitObj, leftTrans);
-            GA.GetComponent<Fruitattribute>().CreateFruit();
-        }
+        int randomNum = Random.Range(0, monsterType.Count);
+        return monsterType[randomNum];
     }
 
     //切换方向生成
@@ -135,12 +129,12 @@ public class FruitCreatePointMags : MonoBehaviour
     {
         if (isStartTimer)
         {
-            GameObject GA = Instantiate(fruitObj, rightTrans);
+            GameObject GA = Instantiate(RandomMonster(), rightTrans);
             GA.GetComponent<Fruitattribute>().CreateColorFriut();
         }
         else
         {
-            GameObject GA = Instantiate(fruitObj, leftTrans);
+            GameObject GA = Instantiate(RandomMonster(), leftTrans);
             GA.GetComponent<Fruitattribute>().CreateColorFriut();
         }
     }
@@ -150,12 +144,12 @@ public class FruitCreatePointMags : MonoBehaviour
     {
         if (isStartTimer)
         {
-            GameObject GA = Instantiate(fruitObj, rightTrans);
+            GameObject GA = Instantiate(RandomMonster(), rightTrans);
             GA.GetComponent<Fruitattribute>().CertainFruit();
         }
         else
         {
-            GameObject GA = Instantiate(fruitObj, leftTrans);
+            GameObject GA = Instantiate(RandomMonster(), leftTrans);
             GA.GetComponent<Fruitattribute>().CertainFruit();
         }
     }
@@ -207,12 +201,12 @@ public class FruitCreatePointMags : MonoBehaviour
     {
         if (isStartTimer)
         {
-            GameObject GA = Instantiate(fruitObj, rightTrans);
+            GameObject GA = Instantiate(RandomMonster(), rightTrans);
             GA.GetComponent<Fruitattribute>().CreateFruit();
         }
         else
         {
-            GameObject GA = Instantiate(fruitObj, leftTrans);
+            GameObject GA = Instantiate(RandomMonster(), leftTrans);
             GA.GetComponent<Fruitattribute>().CreateFruit();
         }
     }

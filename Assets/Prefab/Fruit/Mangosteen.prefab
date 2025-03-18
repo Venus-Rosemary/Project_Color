@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &177566529852935589
+--- !u!1 &7289757079983440903
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 177566529852935588}
-  - component: {fileID: 177566529852935593}
-  - component: {fileID: 177566529852935594}
-  - component: {fileID: 177566529852935595}
-  - component: {fileID: 177566529852935592}
+  - component: {fileID: 6012642682921006612}
+  - component: {fileID: 3326528548056108066}
+  - component: {fileID: 9013600051865284827}
+  - component: {fileID: 6372198935580104500}
+  - component: {fileID: 4008990681737939522}
   m_Layer: 0
-  m_Name: Orange_Orange
+  m_Name: Mangosteen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &177566529852935588
+--- !u!4 &6012642682921006612
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177566529852935589}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 7289757079983440903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.3, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &177566529852935593
+--- !u!33 &3326528548056108066
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177566529852935589}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &177566529852935594
+  m_GameObject: {fileID: 7289757079983440903}
+  m_Mesh: {fileID: -3457474930605594735, guid: 45a8be422b712b944aa4e0eb5e7cb778, type: 3}
+--- !u!23 &9013600051865284827
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177566529852935589}
+  m_GameObject: {fileID: 7289757079983440903}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d250204e07b54a347b403331736b2175, type: 2}
+  - {fileID: 2100000, guid: 81f557d0d3458494fbf3b8a0bb721018, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,40 +85,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &177566529852935595
+--- !u!135 &6372198935580104500
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177566529852935589}
+  m_GameObject: {fileID: 7289757079983440903}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &177566529852935592
+--- !u!114 &4008990681737939522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177566529852935589}
+  m_GameObject: {fileID: 7289757079983440903}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6aa1431e043f6ec4aa7db20f805efdec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fruitDataClass:
-    fruitType: 1
-    colorType: 1
-    fruitPrefab: {fileID: 177566529852935589}
+    fruitType: 6
+    colorType: 6
+    fruitPrefab: {fileID: 7289757079983440903}
     materialsList:
-    - {fileID: 2100000, guid: b35070dc129632f4a86f13dc8f8cc056, type: 2}
-    - {fileID: 2100000, guid: d250204e07b54a347b403331736b2175, type: 2}
-    - {fileID: 2100000, guid: 95bd52a46fb5ba54fadb60ef01c19f31, type: 2}
-    - {fileID: 2100000, guid: 84dbcabeeb1d6dc4d8b8737bc8771edc, type: 2}
-    - {fileID: 2100000, guid: 8d630b2a4af01e141ac68da55ec787e4, type: 2}
-    - {fileID: 2100000, guid: b80c738eff5a6be4da8af4be8481b7c4, type: 2}
-    - {fileID: 2100000, guid: d7bdd5c42e54bee4293c3cdcb15d4523, type: 2}
+    - {fileID: 2100000, guid: db7bd77e869cf174ca04b4f38ef7cd4a, type: 2}
+    - {fileID: 2100000, guid: 78ab45e733cdb014a970d5171c30f227, type: 2}
+    - {fileID: 2100000, guid: 804baa62205bf564daecd4b398125d8c, type: 2}
+    - {fileID: 2100000, guid: be78821032d8c4949b3aadd797dcdce7, type: 2}
+    - {fileID: 2100000, guid: e3a8bd0ac2aed0a459da868be730c289, type: 2}
+    - {fileID: 2100000, guid: 9d14a70853a7f3a43a8f215b26ef6481, type: 2}
+    - {fileID: 2100000, guid: 053fd092da8c828438024e75634d5dc0, type: 2}

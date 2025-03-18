@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6394971386583145736
+--- !u!1 &3875343319485390102
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6049548386093434802}
-  - component: {fileID: 7231527153679730711}
-  - component: {fileID: 4881757857516420317}
-  - component: {fileID: 4553409966671858198}
-  - component: {fileID: 3201005413093496879}
+  - component: {fileID: 260265326997597957}
+  - component: {fileID: 9135449935515604275}
+  - component: {fileID: 3313288386991499722}
+  - component: {fileID: 4818698314279467742}
+  - component: {fileID: 7932209001580830781}
   m_Layer: 0
-  m_Name: Banana
+  m_Name: Lime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6049548386093434802
+--- !u!4 &260265326997597957
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6394971386583145736}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.88, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 3875343319485390102}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.3, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!33 &7231527153679730711
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &9135449935515604275
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6394971386583145736}
-  m_Mesh: {fileID: 3216447080179446721, guid: 870e5e65ea366864ca8afee7bd456c8c, type: 3}
---- !u!23 &4881757857516420317
+  m_GameObject: {fileID: 3875343319485390102}
+  m_Mesh: {fileID: 6044275257189049955, guid: ac06a9f66b7831a4cbe39f23c39355d9, type: 3}
+--- !u!23 &3313288386991499722
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6394971386583145736}
+  m_GameObject: {fileID: 3875343319485390102}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 34d943cadb9c4694db279966c053e10f, type: 2}
+  - {fileID: 2100000, guid: ec09462bcdc4e004a9febf57f6e7f52a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,40 +85,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4553409966671858198
-BoxCollider:
+--- !u!135 &4818698314279467742
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6394971386583145736}
+  m_GameObject: {fileID: 3875343319485390102}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.77284276, y: 1.0227779, z: 0.30910784}
-  m_Center: {x: -0.05957766, y: 0.07839845, z: 0.000000022351747}
---- !u!114 &3201005413093496879
+  m_Radius: 0.23711932
+  m_Center: {x: 0, y: 0.0062676235, z: 0.000000022351747}
+--- !u!114 &7932209001580830781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6394971386583145736}
+  m_GameObject: {fileID: 3875343319485390102}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6aa1431e043f6ec4aa7db20f805efdec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fruitDataClass:
-    fruitType: 2
-    colorType: 2
-    fruitPrefab: {fileID: 6394971386583145736}
+    fruitType: 3
+    colorType: 3
+    fruitPrefab: {fileID: 3875343319485390102}
     materialsList:
-    - {fileID: 2100000, guid: 790ec5d679858d8489f875e49e1529f8, type: 2}
-    - {fileID: 2100000, guid: b6617dc104361724d87b05846f3c6ea0, type: 2}
-    - {fileID: 2100000, guid: d4b5c01f256f9594394a174902df6d35, type: 2}
-    - {fileID: 2100000, guid: b3da3ea3f6a400a4383373017ebac240, type: 2}
-    - {fileID: 2100000, guid: 1eefbacf58fce864193a6ee45568fe2b, type: 2}
-    - {fileID: 2100000, guid: 6996be604b1acc346b2c35618f030e5c, type: 2}
-    - {fileID: 2100000, guid: 34d943cadb9c4694db279966c053e10f, type: 2}
+    - {fileID: 2100000, guid: 7d04a9ea1faac06478af7eca3d0c01c6, type: 2}
+    - {fileID: 2100000, guid: 0bfa2ad048ed75f4dba0b7d8831dc42a, type: 2}
+    - {fileID: 2100000, guid: 6342c3075bf2b1949a6f050fb3fe0d8a, type: 2}
+    - {fileID: 2100000, guid: dff4ac326f7e6e7478d676ae77711a48, type: 2}
+    - {fileID: 2100000, guid: 96da841468358cc46822161a84f67cc3, type: 2}
+    - {fileID: 2100000, guid: 145481b886c72814886faa90eb8c9d8d, type: 2}
+    - {fileID: 2100000, guid: b2722176b1c150f488e0afa2c29b4ce8, type: 2}
