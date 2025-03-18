@@ -30,10 +30,10 @@ public class Fruitattribute : MonoBehaviour
     }
 
     //生成某一类水果
-    public void CertainFruit(FruitType _fruitType)
+    public void CertainFruit()
     {
-        fruitDataObj = Instantiate(FruitCreatePointMags.Instance.CertainFruit(_fruitType), transform).GetComponent<FruitData>();
-        fruitDataObj.FruitInit(fruitDataObj.fruitDataClass, true);
+        fruitDataObj = Instantiate(RandomSecondLevelFruit(), transform).GetComponent<FruitData>();
+        fruitDataObj.FruitInit(fruitDataObj.fruitDataClass);
         fruitObj = fruitDataObj.gameObject;
     }
 
@@ -42,6 +42,13 @@ public class Fruitattribute : MonoBehaviour
     {
         int _randomFruit = Random.Range(0,FruitCreatePointMags.Instance.fruitDatas.Count);
         return FruitCreatePointMags.Instance.fruitDatas[_randomFruit].fruitDataClass.fruitPrefab;
+    }
+
+    //随机普通关卡 第二阶段水果
+    public GameObject RandomSecondLevelFruit()
+    {
+        int _randomFruit = Random.Range(0,FruitCreatePointMags.Instance.secondLevelFruitDatas.Count);
+        return FruitCreatePointMags.Instance.secondLevelFruitDatas[_randomFruit].fruitDataClass.fruitPrefab;
     }
 
     //播放变小动画

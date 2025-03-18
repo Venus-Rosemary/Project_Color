@@ -391,7 +391,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6012642682921006612, guid: e59e02bfb9d12ef4c8b2dd360450323d, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6012642682921006612, guid: e59e02bfb9d12ef4c8b2dd360450323d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -458,7 +458,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 260265326997597957, guid: 080ca3386043bb04b9e9a84a8e92353e, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 260265326997597957, guid: 080ca3386043bb04b9e9a84a8e92353e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1640,7 +1640,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6569053174755020720, guid: dc573bed1bcd87940906f2e6f0efb9ab, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6569053174755020720, guid: dc573bed1bcd87940906f2e6f0efb9ab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1711,7 +1711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573459490992485644, guid: 5585f68fdf51bb643acfe1f2674f442a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7573459490992485644, guid: 5585f68fdf51bb643acfe1f2674f442a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2678,7 +2678,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3963032095566381679, guid: 6191fcea68bb7bd49ae7866a0b1356e1, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3963032095566381679, guid: 6191fcea68bb7bd49ae7866a0b1356e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2858,7 +2858,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6049548386093434802, guid: 836804c92204c1247ac962303cae160e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6049548386093434802, guid: 836804c92204c1247ac962303cae160e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3178,6 +3178,14 @@ MonoBehaviour:
   - {fileID: 7932209001580830781, guid: 080ca3386043bb04b9e9a84a8e92353e, type: 3}
   - {fileID: 4008990681737939522, guid: e59e02bfb9d12ef4c8b2dd360450323d, type: 3}
   - {fileID: 4212731835036472460, guid: 5585f68fdf51bb643acfe1f2674f442a, type: 3}
+  secondLevelFruitDatas:
+  - {fileID: 4930046413169062075, guid: 7c9f4942c52ff214a87cc4525ebdeee7, type: 3}
+  - {fileID: 9142993250775695582, guid: 61a3246dc641d7640a28977f4778708d, type: 3}
+  - {fileID: 4808764878641444625, guid: 14c24699240b06e4eb834195b2898a6e, type: 3}
+  - {fileID: 8935477378983831030, guid: d5dc0a694741561459f6e8f4c18efd32, type: 3}
+  - {fileID: 4974970270006182219, guid: 70755b7c74983e349ba6eaed044da837, type: 3}
+  - {fileID: 3893270222650480369, guid: 3276cd33398109a41b890d401765e850, type: 3}
+  - {fileID: -4182542716942818531, guid: 196c9635e8cfc6d42918fc841afb4ae8, type: 3}
   fruitObj: {fileID: 132657385907315583, guid: 10687610b033f88448725c4958887f1c, type: 3}
   rightTrans: {fileID: 1510934123}
   leftTrans: {fileID: 1702221258}

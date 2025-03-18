@@ -7,6 +7,8 @@ public class FruitCreatePointMags : MonoBehaviour
 
     public List<FruitData> fruitDatas = new List<FruitData>();
 
+    public List<FruitData> secondLevelFruitDatas = new List<FruitData>();
+
     private Dictionary<FruitType, FruitData> fruitDic = new Dictionary<FruitType, FruitData>();
 
     public GameObject fruitObj;
@@ -33,8 +35,6 @@ public class FruitCreatePointMags : MonoBehaviour
      
     private void OnEnable()
     {
-        RandomFruitType();
-
         if (GameManagement.Instance.difficultyLevel)
         {
             StartCreateFruit_D();
@@ -151,44 +151,44 @@ public class FruitCreatePointMags : MonoBehaviour
         if (isStartTimer)
         {
             GameObject GA = Instantiate(fruitObj, rightTrans);
-            GA.GetComponent<Fruitattribute>().CertainFruit(RandomSecondFruitType());
+            GA.GetComponent<Fruitattribute>().CertainFruit();
         }
         else
         {
             GameObject GA = Instantiate(fruitObj, leftTrans);
-            GA.GetComponent<Fruitattribute>().CertainFruit(RandomSecondFruitType());
+            GA.GetComponent<Fruitattribute>().CertainFruit();
         }
     }
 
-    private int fruitType;
-    public void RandomFruitType()
-    {
-        fruitType = Random.Range(0, 7);
-    }
+    //private int fruitType;
+    //public void RandomFruitType()
+    //{
+    //    fruitType = Random.Range(0, 7);
+    //}
 
     //第二阶段 随机一种水果
-    public FruitType RandomSecondFruitType()
-    {
-        switch (fruitType)
-        {
-            case 0:
-                return FruitType.Apple;
-            case 1:
-                return FruitType.Orange;
-            case 2:
-                return FruitType.Banana;
-            case 3:
-                return FruitType.GreenMango;
-            case 4:
-                return FruitType.Blueberry;
-            case 5:
-                return FruitType.Grape;
-            case 6:
-                return FruitType.Mangosteen;
-        }
+    //public FruitType RandomSecondFruitType()
+    //{
+    //    switch (fruitType)
+    //    {
+    //        case 0:
+    //            return FruitType.Apple;
+    //        case 1:
+    //            return FruitType.Orange;
+    //        case 2:
+    //            return FruitType.Banana;
+    //        case 3:
+    //            return FruitType.GreenMango;
+    //        case 4:
+    //            return FruitType.Blueberry;
+    //        case 5:
+    //            return FruitType.Grape;
+    //        case 6:
+    //            return FruitType.Mangosteen;
+    //    }
 
-        return FruitType.None;
-    }
+    //    return FruitType.None;
+    //}
 
     #endregion
 
