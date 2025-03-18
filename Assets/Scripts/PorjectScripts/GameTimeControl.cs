@@ -19,6 +19,19 @@ public class GameTimeControl : Singleton<GameTimeControl>
         {
             KeepTime();
         }
+        if (currentTime==0)
+        {
+            if (GameManagement.Instance.commonLevel||GameManagement.Instance.difficultyLevel)
+            {
+                GameManagement.Instance.first_Current_Data.Clear();
+                GameManagement.Instance.second_Current_Data.Clear();
+                GameManagement.Instance.first_difficulty_Current_Data.Clear();
+                GameManagement.Instance.second_difficulty_Current_Data.Clear();
+                GameManagement.Instance.commonLevel = false;
+                GameManagement.Instance.difficultyLevel = false;
+                UIManagement.Instance.OpenEndPlane();
+            }
+        }
     }
 
     public void Set_GameTimeStart()
