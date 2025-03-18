@@ -9,10 +9,11 @@ public class FirstLevelManagement : MonoBehaviour
     public List<SetWaveNumber> SetWN;
     public Blackboard FirstB;
     public GameObject PlayerPos;
+    [SerializeField]
     private Vector3 StartPos;
     void Start()
     {
-        StartPos = gameObject.transform.position;
+        StartPos = PlayerPos.transform.position;
     }
 
     void Update()
@@ -21,7 +22,7 @@ public class FirstLevelManagement : MonoBehaviour
     }
     public void Set_PlayStartPos()
     {
-        PlayerPos.transform.position = StartPos;
+        PlayerPos.transform.position = new Vector3(0,1.5f,0);
     }
     public int FiresIndex=0;
     public void Set_ActiveBool()

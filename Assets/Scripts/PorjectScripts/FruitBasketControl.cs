@@ -55,7 +55,8 @@ public class FruitBasketControl : MonoBehaviour
     }
     private void Start()
     {
-        CountUI_P = Instantiate(CountUI_Prefab, this.gameObject.transform);
+        Debug.Log("?");
+        CountUI_P = Instantiate(CountUI_Prefab, currentObj.gameObject.transform);
         if (CountUI_P != null)
         {
             CountUI_P.GetComponent<Canvas>().worldCamera = Camera.main;
