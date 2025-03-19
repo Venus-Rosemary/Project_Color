@@ -68,7 +68,8 @@ public class Fruitattribute : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(transform.forward * moveSpeed, ForceMode.VelocityChange);
+        //rb.AddForce(transform.forward * moveSpeed, ForceMode.VelocityChange);
+        transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
     }
 
     private void OnTriggerEnter(Collider other)
