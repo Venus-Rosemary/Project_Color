@@ -26,6 +26,7 @@ public class FruitBasketControl : MonoBehaviour
     public GameObject CountUI_Prefab=null;
     private GameObject CountUI_P=null;
     private TMP_Text CountUI=null;
+    public List<GameObject> FullFruitG;
 
     [Header("新手教学请勾选is_FirstPass")]
     public bool is_FirstPass=false;
@@ -164,6 +165,16 @@ public class FruitBasketControl : MonoBehaviour
            GameManagement.Instance.InjuredHP();
         }
         UI_QuantityDisplay();
+        if (!is_FirstPass && !is_ThirdPass)
+        {
+            for (int i = 1; i < FullFruitG.Count+1; i++)
+            {
+                if (i== totality)
+                {
+                    FullFruitG[i].SetActive(true);
+                }
+            }
+        }
     }
     private void HPLookAtCamera()
     {

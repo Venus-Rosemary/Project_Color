@@ -412,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Banana (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5554061156835651844, guid: 7f6379cbc7125e84dbaecf6dfe6bf4de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f6379cbc7125e84dbaecf6dfe6bf4de, type: 3}
 --- !u!4 &8337309044004929362 stripped
