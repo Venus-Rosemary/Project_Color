@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManagement : MonoBehaviour
@@ -13,6 +14,9 @@ public class UIManagement : MonoBehaviour
     public GamePlane gamePlane;
     public GameObject colorPlane;
     public GameObject hpPlane;
+
+    public GameObject redWarnObj;
+    public GameObject addTextObj;
 
     private void Awake()
     {
@@ -55,6 +59,7 @@ public class UIManagement : MonoBehaviour
     //关闭所有界面
     public void CloseAllPlane()
     {
+        redWarnObj.SetActive(false);
         mainPlane.gameObject.SetActive(false);
         endPlane.gameObject.SetActive(false);
         gamePlane.gameObject.SetActive(false);
@@ -65,5 +70,32 @@ public class UIManagement : MonoBehaviour
     {
         mainPlane.level_Data_Obj.SetActive(false);
         mainPlane.novice_Data_Obj.SetActive(false);
+    }
+
+    //打开警告界面
+    public void OpenWarnPlane()
+    {
+        redWarnObj.SetActive(true);
+        Invoke("CloseWarnPlane",1.4f) ;
+    }
+
+    //关闭警告界面
+    public void CloseWarnPlane()
+    {
+        redWarnObj.SetActive(false);
+    }
+
+    //打开加时界面
+    public void OpenAddTmpPlane(int timer = 10)
+    {
+        addTextObj.SetActive(true);
+        addTextObj.transform.GetComponentInChildren<TMP_Text>().text = "+" + timer + "秒";
+        Invoke("CloseAddTmpPlane", 1.2f);
+    }
+
+    //关闭加时界面
+    public void CloseAddTmpPlane()
+    {
+        addTextObj.SetActive(false);
     }
 }

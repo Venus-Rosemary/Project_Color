@@ -167,7 +167,7 @@ public class FruitBasketControl : MonoBehaviour
         UI_QuantityDisplay();
         if (!is_FirstPass && !is_ThirdPass)
         {
-            for (int i = 1; i < FullFruitG.Count+1; i++)
+            for (int i = 1; i < FullFruitG.Count; i++)
             {
                 if (i== totality)
                 {
@@ -216,6 +216,8 @@ public class FruitBasketControl : MonoBehaviour
                     totality += 1;
                     CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
+                    UIManagement.Instance.OpenAddTmpPlane();
+                    SoundManagement.Instance.PlaySFX(0);
                     LoseBlood();
                 }
                 else if(other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -227,6 +229,8 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
+                    UIManagement.Instance.OpenWarnPlane();
+                    SoundManagement.Instance.PlaySFX(1);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -237,6 +241,8 @@ public class FruitBasketControl : MonoBehaviour
                     totality += 1;
                     CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
+                    UIManagement.Instance.OpenAddTmpPlane();
+                    SoundManagement.Instance.PlaySFX(0);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -248,6 +254,8 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
+                    UIManagement.Instance.OpenWarnPlane();
+                    SoundManagement.Instance.PlaySFX(1);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -258,6 +266,8 @@ public class FruitBasketControl : MonoBehaviour
                     totality += 1;
                     CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
+                    UIManagement.Instance.OpenAddTmpPlane();
+                    SoundManagement.Instance.PlaySFX(0);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -269,6 +279,8 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
+                    UIManagement.Instance.OpenWarnPlane();
+                    SoundManagement.Instance.PlaySFX(1);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -279,6 +291,8 @@ public class FruitBasketControl : MonoBehaviour
                     totality += 1;
                     CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
+                    UIManagement.Instance.OpenAddTmpPlane();
+                    SoundManagement.Instance.PlaySFX(0);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -290,6 +304,8 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
+                    UIManagement.Instance.OpenWarnPlane();
+                    SoundManagement.Instance.PlaySFX(1);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -300,6 +316,8 @@ public class FruitBasketControl : MonoBehaviour
                     totality += 1;
                     CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
+                    UIManagement.Instance.OpenAddTmpPlane();
+                    SoundManagement.Instance.PlaySFX(0);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -311,6 +329,8 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
+                    UIManagement.Instance.OpenWarnPlane();
+                    SoundManagement.Instance.PlaySFX(1);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -321,6 +341,8 @@ public class FruitBasketControl : MonoBehaviour
                     totality += 1;
                     CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
+                    UIManagement.Instance.OpenAddTmpPlane();
+                    SoundManagement.Instance.PlaySFX(0);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Black
@@ -332,6 +354,8 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
+                    UIManagement.Instance.OpenWarnPlane();
+                    SoundManagement.Instance.PlaySFX(1);
                     Destroy(other.gameObject);
                 }
                 break;
@@ -342,6 +366,8 @@ public class FruitBasketControl : MonoBehaviour
                     totality += 1;
                     CorrectVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(10f);
+                    UIManagement.Instance.OpenAddTmpPlane();
+                    SoundManagement.Instance.PlaySFX(0);
                     LoseBlood();
                 }
                 else if (other.gameObject.GetComponent<FruitData>().fruitDataClass.colorType == FruitColorType.Red
@@ -353,6 +379,8 @@ public class FruitBasketControl : MonoBehaviour
                 {
                     MistakeVFx.SetActive(true);
                     GameTimeControl.Instance.AddT(-10f);
+                    UIManagement.Instance.OpenWarnPlane();
+                    SoundManagement.Instance.PlaySFX(1);
                     Destroy(other.gameObject);
                 }
                 break;
