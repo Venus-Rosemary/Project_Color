@@ -84,8 +84,10 @@ public class FruitBasketControl : MonoBehaviour
         if (totality>=7 && !is_FirstPass&&!is_ThirdPass)
         {
             _isFillBasket = true;
-            gameObject.SetActive(false);
+
+            //gameObject.SetActive(false);
             totality = 0;
+            StartCoroutine(SecondWaitTime());
             if (GameManagement.Instance._startSecond)
                 GameManagement.Instance.RemoveSecondFruitBasket();
             else
@@ -93,6 +95,11 @@ public class FruitBasketControl : MonoBehaviour
         }
         Set_FirstPassBasket();
         Set_ThirdPassBasket();
+    }
+    IEnumerator SecondWaitTime()
+    {
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
     }
 
     //随机数量、关闭颜色显示

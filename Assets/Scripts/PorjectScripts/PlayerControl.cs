@@ -118,7 +118,7 @@ public class PlayerControl : MonoBehaviour
         }
         Debug.Log("碰到:"+other.gameObject.name);
         InHands = Instantiate(other.gameObject, GrabPoint.transform);
-        InHands.transform.localScale = new Vector3(1, 1, 1);
+        //InHands.transform.localScale = new Vector3(1, 1, 1);
         //InHands.gameObject.transform.SetParent(GrabPoint.transform,false);
         InHands.SetActive(true);
         GrabDecide.SetActive(false);

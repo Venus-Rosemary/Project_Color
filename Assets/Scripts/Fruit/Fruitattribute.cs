@@ -7,6 +7,8 @@ public class Fruitattribute : MonoBehaviour
     //水果预制体
     public GameObject fruitObj;
 
+    public GameObject vanishVFX;
+
     public Transform fruitTrans;
 
     private FruitData fruitDataObj;
@@ -56,7 +58,7 @@ public class Fruitattribute : MonoBehaviour
     //播放变小动画
     public void PlayAnim()
     {
-
+        vanishVFX.SetActive(true);
         Invoke("DestroyFruit",1f);
     }
 
